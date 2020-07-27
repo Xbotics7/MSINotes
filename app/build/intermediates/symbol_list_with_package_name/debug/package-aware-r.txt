@@ -1501,6 +1501,7 @@ id barrier
 id beginning
 id blocking
 id bottom
+id btnSem1
 id buttonPanel
 id cancel_action
 id cancel_button
@@ -1556,6 +1557,7 @@ id fitToContents
 id fixed
 id forever
 id fragment_container_view_tag
+id frame_home
 id ghost_view
 id ghost_view_holder
 id gone
@@ -1821,6 +1823,7 @@ layout design_text_input_start_icon
 layout fragment_bookmark
 layout fragment_home
 layout fragment_search
+layout fragment_semester
 layout fragment_settings
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
@@ -1925,6 +1928,7 @@ string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string mtrl_badge_numberless_content_description

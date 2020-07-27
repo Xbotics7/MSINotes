@@ -8,12 +8,12 @@
         "source": "C:\\Users\\Shyam\\Documents\\GitHub\\MSINotes\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\Shyam\\Documents\\GitHub\\MSINotes\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_baseline_home_24.png.flat",
-        "source": "C:\\Users\\Shyam\\Documents\\GitHub\\MSINotes\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_baseline_home_24.png"
-    },
-    {
         "merged": "C:\\Users\\Shyam\\Documents\\GitHub\\MSINotes\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_settings.xml.flat",
         "source": "C:\\Users\\Shyam\\Documents\\GitHub\\MSINotes\\app\\src\\main\\res\\layout\\fragment_settings.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shyam\\Documents\\GitHub\\MSINotes\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_baseline_home_24.png.flat",
+        "source": "C:\\Users\\Shyam\\Documents\\GitHub\\MSINotes\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_baseline_home_24.png"
     },
     {
         "merged": "C:\\Users\\Shyam\\Documents\\GitHub\\MSINotes\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_home_black_24dp.png.flat",
@@ -186,6 +186,10 @@
     {
         "merged": "C:\\Users\\Shyam\\Documents\\GitHub\\MSINotes\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_baseline_settings_24.png.flat",
         "source": "C:\\Users\\Shyam\\Documents\\GitHub\\MSINotes\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_baseline_settings_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Shyam\\Documents\\GitHub\\MSINotes\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_semester.xml.flat",
+        "source": "C:\\Users\\Shyam\\Documents\\GitHub\\MSINotes\\app\\src\\main\\res\\layout\\fragment_semester.xml"
     },
     {
         "merged": "C:\\Users\\Shyam\\Documents\\GitHub\\MSINotes\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",

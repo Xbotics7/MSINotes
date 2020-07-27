@@ -23,7 +23,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />-->
 
-
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/frame_home"
+            android:visibility="gone"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -69,7 +73,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="1st Semester"
-
+            android:id="@+id/btnSem1"
             android:layout_marginTop="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
