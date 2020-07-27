@@ -27,7 +27,8 @@ public class HomeFragment extends Fragment {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-//        final TextView textView = root.findViewById(R.id.text_home);
+
+
         Button btnFrag = (Button)root.findViewById(R.id.btnSem1);
         final FrameLayout frmMain = (FrameLayout)root.findViewById(R.id.frame_home);
         btnFrag.setOnClickListener(new View.OnClickListener()
