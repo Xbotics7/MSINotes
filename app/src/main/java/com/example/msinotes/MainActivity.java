@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setElevation(0);
 
         //End
+        //hello secksi boi
 
     }
 
