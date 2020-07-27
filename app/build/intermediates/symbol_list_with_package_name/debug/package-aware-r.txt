@@ -1502,6 +1502,7 @@ id beginning
 id blocking
 id bottom
 id btnSem1
+id btnSubject
 id buttonPanel
 id cancel_action
 id cancel_button
@@ -1558,6 +1559,7 @@ id fixed
 id forever
 id fragment_container_view_tag
 id frame_home
+id frame_semester
 id ghost_view
 id ghost_view_holder
 id gone
@@ -1825,6 +1827,7 @@ layout fragment_home
 layout fragment_search
 layout fragment_semester
 layout fragment_settings
+layout fragment_subject_info
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title
