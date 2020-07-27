@@ -1710,7 +1710,6 @@ id textSpacerNoTitle
 id textStart
 id text_bookmark
 id text_dashboard
-id text_home
 id text_input_end_icon
 id text_input_start_icon
 id text_setting
