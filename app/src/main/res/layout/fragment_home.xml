@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#212121"
+    android:background="#e8e8e8"
     tools:context=".ui.home.HomeFragment">
 
     <!--<TextView
@@ -29,20 +29,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="BCA"
+            android:layout_marginTop="5dp"
+            android:textColor="#000"
             android:textSize="40sp"
-            android:textColor="#fff"
             android:gravity="center_horizontal"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Bachelor Of Computer Application"
             android:textSize="12sp"
-            android:textColor="#fff"
+            android:textColor="#000"
             android:gravity="center_horizontal"/>
         <View
             android:layout_width="fill_parent"
             android:layout_height="1dp"
-            android:background="#ffffff"
+            android:background="#000"
+            android:layout_marginTop="7dp"
             android:layout_marginRight="24dp"
             android:layout_marginLeft="24dp"/>
 
@@ -50,37 +52,39 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="26dp"
             android:text="Year I"
-            android:textColor="#fff"
+
+            android:textColor="#000"
             android:textSize="24sp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="110dp"
         android:padding="10dp"
         android:orientation="horizontal">
 
     <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Semester 1"
+            android:text="1st Semester"
+
             android:layout_marginTop="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:background="#2a282d"
+            android:background="#3683cf"
             android:textColor="#fff"/>
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:text="Semester 2"
             android:layout_weight="1"
             android:layout_marginTop="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:background="#2a282d"
+            android:background="#3683cf"
             android:textColor="#fff"/>
     </LinearLayout>
 
@@ -90,33 +94,33 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:text="Year II"
-            android:textColor="#fff"
+            android:textColor="#000"
             android:textSize="24sp"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="110dp"
         android:orientation="horizontal"
         android:padding="10dp">
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Semester 3"
+            android:text="3rd Semester"
             android:layout_marginTop="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:background="#2a282d"
+            android:background="#296db2"
             android:textColor="#fff"/>
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:text="Semester 4"
             android:layout_weight="1"
             android:layout_marginTop="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:background="#2a282d"
+            android:background="#296db2"
             android:textColor="#fff"/>
     </LinearLayout>
 
@@ -126,37 +130,36 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:text="Year III"
-            android:textColor="#fff"
+            android:textColor="#000"
             android:textSize="24sp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="110dp"
         android:orientation="horizontal"
         android:padding="10dp">
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Semester 5"
+            android:text="5th Semester"
             android:layout_marginTop="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:background="#2a282d"
+            android:background="#1b5692"
             android:textColor="#fff"/>
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Semester 6"
+            android:layout_height="match_parent"
+            android:text="6th Semester"
             android:layout_weight="1"
             android:layout_marginTop="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:background="#2a282d"
+            android:background="#1b5692"
             android:textColor="#fff"/>
     </LinearLayout>
-
 
 
 </LinearLayout>

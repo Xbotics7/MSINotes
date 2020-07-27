@@ -1384,6 +1384,7 @@ drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable ic_baseline_bookmark_24
+drawable ic_baseline_home_24
 drawable ic_baseline_search_24
 drawable ic_baseline_settings_24
 drawable ic_calendar_black_24dp
