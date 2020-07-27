@@ -31,11 +31,12 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
+        //Shyam Start
+        //This Remove shadows from action bar
         getSupportActionBar().setElevation(0);
 
-        //Spannable text = new SpannableString(getSupportActionBar().getTitle());
-        //text.setSpan(new ForegroundColorSpan(Color.BLACK), 0, text.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
-        //getSupportActionBar().setTitle(text);
+        //End
+
     }
 
 }
