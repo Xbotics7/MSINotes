@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
     {
         if(keyCode == KeyEvent.KEYCODE_BACK)
         {
-
             return true;
         }
         return false;
