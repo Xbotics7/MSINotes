@@ -23,6 +23,7 @@ public class SemesterFragment extends Fragment
         View view = inflater.inflate(R.layout.fragment_semester, container, false);
 
         Button btnFrag = (Button)view.findViewById(R.id.btnSubject);
+
         final FrameLayout frmMain = (FrameLayout)view.findViewById(R.id.frame_semester);
         btnFrag.setOnClickListener(new View.OnClickListener()
         {

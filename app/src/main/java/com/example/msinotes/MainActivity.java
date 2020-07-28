@@ -5,11 +5,18 @@ import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
+import android.view.KeyEvent;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.msinotes.ui.SemesterFragment;
+import com.example.msinotes.ui.SubjectInfoFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -46,6 +53,16 @@ public class MainActivity extends AppCompatActivity {
 
         //shyam part 2
 
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if(keyCode == KeyEvent.KEYCODE_BACK)
+        {
+
+            return true;
+        }
+        return false;
     }
 
 }
