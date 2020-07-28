@@ -55,10 +55,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="26dp"
             android:text="Year I"
-
             android:textColor="#000"
             android:textSize="24sp"/>
 
@@ -77,7 +76,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:background="#3683cf"
+            android:background="@drawable/rounded_button"
             android:textColor="#fff"/>
 
         <Button
@@ -88,14 +87,14 @@
             android:layout_marginTop="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:background="#3683cf"
+            android:background="@drawable/rounded_button"
             android:textColor="#fff"/>
     </LinearLayout>
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="Year II"
             android:textColor="#000"
@@ -113,7 +112,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:background="#296db2"
+            android:background="@drawable/rounded_button"
             android:textColor="#fff"/>
 
         <Button
@@ -124,14 +123,14 @@
             android:layout_marginTop="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:background="#296db2"
+            android:background="@drawable/rounded_button"
             android:textColor="#fff"/>
     </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="Year III"
             android:textColor="#000"
@@ -150,7 +149,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:background="#1b5692"
+            android:background="@drawable/rounded_button"
             android:textColor="#fff"/>
 
         <Button
@@ -161,7 +160,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:background="#1b5692"
+            android:background="@drawable/rounded_button"
             android:textColor="#fff"/>
     </LinearLayout>
 
