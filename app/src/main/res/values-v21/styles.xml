@@ -6,9 +6,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>-->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">#1b5692</item>
-        <item name="colorPrimaryDark">#1b5692</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:statusBarColor">#1c5592</item>
+        <item name="colorPrimary">#389df1</item>
+        <item name="colorPrimaryDark">#389df1</item>
+        <item name="colorAccent">#389df1</item>
+        <item name="android:statusBarColor">#389df1</item>
     </style>
 </resources>

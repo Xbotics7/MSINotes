@@ -28,8 +28,8 @@ public class HomeFragment extends Fragment {
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-
         Button btnFrag = (Button)root.findViewById(R.id.btnSem1);
+
         final FrameLayout frmMain = (FrameLayout)root.findViewById(R.id.frame_home);
         btnFrag.setOnClickListener(new View.OnClickListener()
         {
@@ -44,4 +44,6 @@ public class HomeFragment extends Fragment {
         });
         return root;
     }
+
+
 }

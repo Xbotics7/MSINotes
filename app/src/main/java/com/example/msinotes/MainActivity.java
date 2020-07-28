@@ -33,7 +33,13 @@ public class MainActivity extends AppCompatActivity {
 
         //Shyam Start
         //This Remove shadows from action bar
-        getSupportActionBar().setElevation(0);
+        try
+        {
+            getSupportActionBar().setElevation(30);
+        }
+        catch (Exception ex){
+
+        }
 
         //End
         //hello secksi boi

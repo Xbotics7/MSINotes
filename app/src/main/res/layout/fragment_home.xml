@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#e8e8e8"
+    android:background="#F4F4F4"
     tools:context=".ui.home.HomeFragment">
 
     <!--<TextView
@@ -57,13 +57,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="26dp"
-            android:text="Year I"
+            android:text="YEAR I"
             android:textColor="#000"
             android:textSize="24sp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="100dp"
         android:padding="10dp"
         android:orientation="horizontal">
 
@@ -73,6 +73,7 @@
             android:layout_weight="1"
             android:text="1st Semester"
             android:id="@+id/btnSem1"
+            android:textAllCaps="false"
             android:layout_marginTop="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
@@ -82,8 +83,9 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Semester 2"
+            android:text="2th Semester"
             android:layout_weight="1"
+            android:textAllCaps="false"
             android:layout_marginTop="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
@@ -96,18 +98,19 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="Year II"
+            android:text="YEAR II"
             android:textColor="#000"
             android:textSize="24sp"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="100dp"
         android:orientation="horizontal"
         android:padding="10dp">
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:textAllCaps="false"
             android:text="3rd Semester"
             android:layout_marginTop="8dp"
             android:layout_marginLeft="16dp"
@@ -118,9 +121,10 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Semester 4"
+            android:text="4th Semester"
             android:layout_weight="1"
             android:layout_marginTop="8dp"
+            android:textAllCaps="false"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:background="@drawable/rounded_button"
@@ -132,13 +136,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="Year III"
+            android:text="YEAR III"
             android:textColor="#000"
             android:textSize="24sp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="100dp"
         android:orientation="horizontal"
         android:padding="10dp">
         <Button
@@ -146,6 +150,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="5th Semester"
+            android:textAllCaps="false"
             android:layout_marginTop="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
@@ -156,6 +161,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="6th Semester"
+            android:textAllCaps="false"
             android:layout_weight="1"
             android:layout_marginTop="8dp"
             android:layout_marginLeft="16dp"
