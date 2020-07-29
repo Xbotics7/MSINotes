@@ -29,6 +29,9 @@ public class HomeFragment extends Fragment {
         Button btnSem1 = (Button)view.findViewById(R.id.btnSem1);
         Button btnSem2 = (Button)view.findViewById(R.id.btnSem2);
         Button btnSem3 = (Button)view.findViewById(R.id.btnSem3);
+        Button btnSem4 = (Button)view.findViewById(R.id.btnSem4);
+        Button btnSem5 = (Button)view.findViewById(R.id.btnSem5);
+        Button btnSem6 = (Button)view.findViewById(R.id.btnSem6);
 
         BottomNavigationView navView = getActivity().findViewById(R.id.nav_view);
         navView.setBackgroundResource(R.drawable.rounded_button);
@@ -57,6 +60,30 @@ public class HomeFragment extends Fragment {
             public void onClick(View v)
             {
                 semButtonClick("sem 3");
+            }
+        });
+        btnSem4.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                semButtonClick("sem 4");
+            }
+        });
+        btnSem5.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                semButtonClick("sem 5");
+            }
+        });
+        btnSem6.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                semButtonClick("sem 6");
             }
         });
         return view;

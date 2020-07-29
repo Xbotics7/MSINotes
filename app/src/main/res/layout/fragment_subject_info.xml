@@ -5,10 +5,12 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".ui.SubjectInfoFragment">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:layout_height="135dp" >
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -46,10 +48,85 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        >
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Books"
+            android:id="@+id/btnSem3"
+            android:textAllCaps="false"
+            android:drawableTop="@drawable/ic_baseline_book_24"
+            android:paddingTop="10dp"
+            android:paddingBottom="15dp"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/rounded_info_button"
+            android:textColor="#fff"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Videos"
+            android:id="@+id/btnSem4"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:drawableTop="@drawable/ic_baseline_ondemand_video_24"
+            android:paddingTop="10dp"
+            android:paddingBottom="15dp"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/rounded_info_button"
+            android:textColor="#fff"/>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Paper Analysis"
+            android:id="@+id/btnSem5"
+            android:textAllCaps="false"
+            android:drawableTop="@drawable/ic_baseline_find_in_page_24"
+            android:paddingTop="10dp"
+            android:paddingBottom="15dp"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/rounded_info_button"
+            android:textColor="#fff"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="blank"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:drawableTop="@drawable/ic_baseline_ondemand_video_24"
+            android:paddingTop="10dp"
+            android:paddingBottom="15dp"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/rounded_info_button"
+            android:textColor="#fff"
+            android:visibility="invisible"/>
+    </LinearLayout>
 
 </LinearLayout>
