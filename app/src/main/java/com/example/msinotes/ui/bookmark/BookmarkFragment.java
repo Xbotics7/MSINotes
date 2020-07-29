@@ -16,20 +16,11 @@ import com.example.msinotes.R;
 
 public class BookmarkFragment extends Fragment {
 
-    private BookmarkViewModel notificationsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        notificationsViewModel =
-                ViewModelProviders.of(this).get(BookmarkViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_bookmark, container, false);
-        final TextView textView = root.findViewById(R.id.text_bookmark);
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
         return root;
     }
 }

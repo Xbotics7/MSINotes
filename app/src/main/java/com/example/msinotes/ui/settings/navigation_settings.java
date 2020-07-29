@@ -14,26 +14,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.msinotes.R;
-import com.example.msinotes.ui.Search.SearchViewModel;
-import com.example.msinotes.ui.home.HomeViewModel;
 
 
 public class navigation_settings extends Fragment {
 
-    private SettingsViewModel settingsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-       /*settingsViewModel =
-                ViewModelProviders.of(this).get(SettingsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        settingsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });*/
-        return null;
+        View root = inflater.inflate(R.layout.fragment_settings, container, false);
+
+        return root;
     }
 }

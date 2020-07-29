@@ -23,11 +23,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />-->
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/frame_home"
-            android:visibility="gone"/>
+
 
         <TextView
             android:layout_width="match_parent"
@@ -84,6 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="2th Semester"
+            android:id="@+id/btnSem2"
             android:layout_weight="1"
             android:textAllCaps="false"
             android:layout_marginTop="8dp"
@@ -113,6 +110,7 @@
             android:textAllCaps="false"
             android:text="3rd Semester"
             android:layout_marginTop="8dp"
+            android:id="@+id/btnSem3"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:background="@drawable/rounded_button"

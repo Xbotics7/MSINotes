@@ -1,50 +1,75 @@
 package com.example.msinotes.ui.home;
 
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.msinotes.MainActivity;
 import com.example.msinotes.R;
-import com.example.msinotes.ui.SemesterFragment;
+import com.example.msinotes.ui.semester.SemesterFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        Button btnFrag = (Button)root.findViewById(R.id.btnSem1);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        final FrameLayout frmMain = (FrameLayout)root.findViewById(R.id.frame_home);
-        btnFrag.setOnClickListener(new View.OnClickListener()
+        Button btnSem1 = (Button)view.findViewById(R.id.btnSem1);
+        Button btnSem2 = (Button)view.findViewById(R.id.btnSem2);
+        Button btnSem3 = (Button)view.findViewById(R.id.btnSem3);
+
+        BottomNavigationView navView = getActivity().findViewById(R.id.nav_view);
+        navView.setBackgroundResource(R.drawable.rounded_button);
+
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("HOME");
+
+        btnSem1.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                frmMain.setVisibility(View.VISIBLE);
-                FragmentTransaction frag = getFragmentManager().beginTransaction();
-                frag.replace(R.id.frame_home, new SemesterFragment());
-                frag.commit();
+                semButtonClick("sem 1");
             }
         });
-        return root;
+        btnSem2.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                semButtonClick("sem 2");
+            }
+        });
+        btnSem3.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                semButtonClick("sem 3");
+            }
+        });
+        return view;
+    }
+
+    private  void semButtonClick(String argument){
+        FragmentTransaction fragTrans = getParentFragmentManager().beginTransaction();
+        SemesterFragment frag = new SemesterFragment();
+        Bundle args = new Bundle();
+        args.putString("Key", argument);
+        frag.setArguments(args);
+        fragTrans.replace(R.id.frame_container, frag).addToBackStack(null);
+        fragTrans.commit();
     }
 
 

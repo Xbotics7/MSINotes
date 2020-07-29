@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.msinotes.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class SubjectInfoFragment extends Fragment
 {
@@ -16,8 +17,11 @@ public class SubjectInfoFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
     {
-        //Shyam
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_subject_info, container, false);
+        View view = inflater.inflate(R.layout.fragment_subject_info, container, false);
+
+        BottomNavigationView navView = getActivity().findViewById(R.id.nav_view);
+        navView.setBackgroundResource(R.drawable.rounded_info_button);
+
+        return view;
     }
 }
