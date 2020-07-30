@@ -6,6 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".ui.SubjectInfoFragment">
 
+    <WebView
+        android:layout_width="match_parent"
+        android:id="@+id/webBrowser"
+        android:visibility="gone"
+        android:layout_height="match_parent"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"
@@ -16,7 +21,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Notes"
-            android:id="@+id/btnSem1"
+            android:id="@+id/btnNotes"
             android:textAllCaps="false"
             android:drawableTop="@drawable/ic_baseline_notes_90"
             android:paddingTop="10dp"
@@ -32,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Akash"
-            android:id="@+id/btnSem2"
+            android:id="@+id/btnAkash"
             android:layout_weight="1"
             android:textAllCaps="false"
             android:drawableTop="@drawable/ic_baseline_menu_book_70"
@@ -56,8 +61,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Books"
-            android:id="@+id/btnSem3"
+            android:text="Book"
+            android:id="@+id/btnBook"
             android:textAllCaps="false"
             android:drawableTop="@drawable/ic_baseline_book_24"
             android:paddingTop="10dp"
@@ -99,7 +104,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Paper Analysis"
-            android:id="@+id/btnSem5"
+            android:id="@+id/btnPprAnalysis"
             android:textAllCaps="false"
             android:drawableTop="@drawable/ic_baseline_find_in_page_24"
             android:paddingTop="10dp"

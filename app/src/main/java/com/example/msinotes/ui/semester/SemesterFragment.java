@@ -52,11 +52,13 @@ public class SemesterFragment extends Fragment
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                FragmentTransaction frag = getParentFragmentManager().beginTransaction();
-                frag.replace(R.id.frame_container, new SubjectInfoFragment()).addToBackStack(null);
-                frag.commit();
-                Toast.makeText(getContext(),((SubjectsClass) mSubject.get(position)).getSubjectCode(), Toast.LENGTH_SHORT).show();
+                SubjectInfoFragment frag = new SubjectInfoFragment();
+                Bundle args = new Bundle();
+                args.putString("SubjectCode", ((SubjectsClass) mSubject.get(position)).mSubjectCode);
+                frag.setArguments(args);
+                FragmentTransaction fragTrans = getParentFragmentManager().beginTransaction();
+                fragTrans.replace(R.id.frame_container, frag).addToBackStack(null);
+                fragTrans.commit();
             }
         });
         return view;

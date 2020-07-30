@@ -41,7 +41,7 @@ public class OptionsAdaptor extends ArrayAdapter<SubjectsClass>
 
         if (currentItem != null) {
 
-            textView.setText(currentItem.getSubjectName());
+            textView.setText(currentItem.mSubjectName);
         }
 
         return convertView;
