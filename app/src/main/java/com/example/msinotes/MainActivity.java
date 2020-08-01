@@ -1,5 +1,6 @@
 package com.example.msinotes;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MenuItem;
@@ -18,14 +19,16 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import com.example.msinotes.SettingsActivity;
 
 public class MainActivity extends AppCompatActivity {
 
+    BottomNavigationView navView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        BottomNavigationView navView = findViewById(R.id.nav_view);
+        navView = findViewById(R.id.nav_view);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new HomeFragment()).commit();
         navView.setOnNavigationItemSelectedListener(navListner);
@@ -63,10 +66,13 @@ public class MainActivity extends AppCompatActivity {
                     selectedFragment = new BookmarkFragment();
                     break;
                     case R.id.navigation_settings :
-                    selectedFragment = new navigation_settings();
+                        Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                        startActivity(intent);
                     break;
             }
-            getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, selectedFragment).commit();
+
+            if(item.getItemId() != R.id.navigation_settings)
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, selectedFragment).commit();
 
             return true;
         }
