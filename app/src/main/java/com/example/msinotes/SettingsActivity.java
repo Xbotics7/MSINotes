@@ -1,6 +1,7 @@
 package com.example.msinotes;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,6 +20,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+
+import com.example.msinotes.Models.UtilityClass;
 
 public class SettingsActivity extends AppCompatActivity implements
         PreferenceFragmentCompat.OnPreferenceStartFragmentCallback
@@ -67,6 +71,19 @@ public class SettingsActivity extends AppCompatActivity implements
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        if(getSupportActionBar().getTitle().toString().equals("Settings"))
+        {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        super.onBackPressed();
+
     }
 
     @Override

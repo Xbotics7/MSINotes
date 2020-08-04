@@ -35,6 +35,7 @@ public class SemesterFragment extends Fragment
 
         BottomNavigationView navView = getActivity().findViewById(R.id.nav_view);
         navView.setBackgroundResource(R.drawable.custom_listview_item);
+        navView.setVisibility(View.VISIBLE);
 
         String value = getArguments().getString("Key");
 
@@ -57,6 +58,7 @@ public class SemesterFragment extends Fragment
                 args.putString("SubjectCode", ((SubjectsClass) mSubject.get(position)).mSubjectCode);
                 frag.setArguments(args);
                 FragmentTransaction fragTrans = getParentFragmentManager().beginTransaction();
+                fragTrans.setCustomAnimations(R.anim.slide_right, R.anim.nav_default_pop_exit_anim, R.anim.slide_left, R.anim.nav_default_pop_exit_anim);
                 fragTrans.replace(R.id.frame_container, frag).addToBackStack(null);
                 fragTrans.commit();
             }

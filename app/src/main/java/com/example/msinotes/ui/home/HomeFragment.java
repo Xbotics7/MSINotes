@@ -1,13 +1,19 @@
 package com.example.msinotes.ui.home;
 
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -35,6 +41,7 @@ public class HomeFragment extends Fragment {
 
         BottomNavigationView navView = getActivity().findViewById(R.id.nav_view);
         navView.setBackgroundResource(R.drawable.rounded_button);
+        navView.setVisibility(View.VISIBLE);
 
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("HOME");
 
@@ -86,7 +93,23 @@ public class HomeFragment extends Fragment {
                 semButtonClick("sem 6");
             }
         });
+
+        SharedPreferences sharedMainPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        String storeStartUpPage = sharedMainPreferences.getString(getString(R.string.key_theme), "1");
+        setTheme(storeStartUpPage, view);
         return view;
+    }
+    private void setTheme(String key, View v){
+        LinearLayout homeLayout = v.findViewById(R.id.linear_layout_home);
+        switch (key){
+            case "1":
+
+                break;
+            case "2":
+                //setTheme(R.style.dark_theme);
+                //homeLayout.setBackgroundColor(Color.parseColor("#171717"));
+                break;
+        }
     }
 
     private  void semButtonClick(String argument){
@@ -95,10 +118,9 @@ public class HomeFragment extends Fragment {
         Bundle args = new Bundle();
         args.putString("Key", argument);
         frag.setArguments(args);
+        fragTrans.setCustomAnimations(R.anim.slide_right, R.anim.nav_default_pop_exit_anim, R.anim.slide_left, R.anim.nav_default_pop_exit_anim);
         fragTrans.replace(R.id.frame_container, frag).addToBackStack(null);
         fragTrans.commit();
     }
-
-
 
 }

@@ -13,14 +13,36 @@
     <string name="about_header">About</string>
 
     <!-- Messages Preferences -->
-<!--    <string name="signature_title">Your signature</string>-->
-<!--    <string name="reply_title">Default reply action</string>-->
+    <!--    <string name="signature_title">Your signature</string>-->
+    <!--    <string name="reply_title">Default reply action</string>-->
 
     <!-- Sync Preferences -->
-<!--    <string name="sync_title">Sync email periodically</string>-->
-<!--    <string name="attachment_title">Download incoming attachments</string>-->
-<!--    <string name="attachment_summary_on">Automatically download attachments for incoming emails-->
-<!--    </string>-->
-<!--    <string name="attachment_summary_off">Only download attachments when manually requested</string>-->
+    <!--    <string name="sync_title">Sync email periodically</string>-->
+    <!--    <string name="attachment_title">Download incoming attachments</string>-->
+    <!--    <string name="attachment_summary_on">Automatically download attachments for incoming emails-->
+    <!--    </string>-->
+    <!--    <string name="attachment_summary_off">Only download attachments when manually requested</string>-->
+
+    <!-- About Page Strings -->
+    <string name="app_version">Version 1.01</string>
+    <string name="pref_header_contact">Contact us</string>
+    <string name="title_insta">Instagram</string>
+    <string name="summary_insta">We\'re also on Instagram</string>
+    <string name="url_insta">https://www.instagram.com/xbotics7/</string>
+    <string name="pref_header_website">Our Website</string>
+    <string name="title_website">Xbotics7</string>
+    <string name="url_website">http://www.google.com</string>
+    <string name="tag_line">Made by Xbotics7</string>
+    <string name="tag_summary">Members</string>
+    <string name="yash_name">Yash Pandey</string>
+    <string name="shyam_name">Shyam Sharma</string>
+    <string name="vaibhav_name">Vaibhav Malhotra</string>
+    <string name="vishal_name">Vishal Pal</string>
+    <string name="sagar_name">Sagar Jhajjari</string>
+    <string name="title_theme">Theme</string>
+    <string name="key_theme">key_theme</string>
+    <string name="summary_theme">Choose theme</string>
+    <string name="talha_name">Talha Wasi</string>
+    <string name="upmanyu_name">Upmanyu</string>
 
 </resources>

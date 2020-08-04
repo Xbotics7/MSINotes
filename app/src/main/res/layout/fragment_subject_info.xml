@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".ui.SubjectInfoFragment">
 
-    <WebView
-        android:layout_width="match_parent"
-        android:id="@+id/webBrowser"
-        android:visibility="gone"
-        android:layout_height="match_parent"/>
+<!--    <WebView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:id="@+id/webBrowser"-->
+<!--        android:visibility="gone"-->
+<!--        android:layout_height="match_parent"/>-->
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"

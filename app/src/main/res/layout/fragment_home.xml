@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F4F4F4"
+    android:id="@+id/linear_layout_home"
+    android:background="?attr/colorHomeBg"
     tools:context=".ui.home.HomeFragment">
 
     <!--<TextView
@@ -30,7 +31,7 @@
             android:layout_height="wrap_content"
             android:text="BCA"
             android:layout_marginTop="5dp"
-            android:textColor="#000"
+            android:textColor="?attr/colorText"
             android:textSize="40sp"
             android:gravity="center_horizontal"/>
         <TextView
@@ -38,12 +39,12 @@
             android:layout_height="wrap_content"
             android:text="Bachelor Of Computer Application"
             android:textSize="12sp"
-            android:textColor="#000"
+            android:textColor="?attr/colorText"
             android:gravity="center_horizontal"/>
         <View
             android:layout_width="fill_parent"
             android:layout_height="1dp"
-            android:background="#000"
+            android:background="?attr/colorText"
             android:layout_marginTop="7dp"
             android:layout_marginRight="24dp"
             android:layout_marginLeft="24dp"/>
@@ -54,7 +55,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="26dp"
             android:text="YEAR I"
-            android:textColor="#000"
+            android:textColor="?attr/colorText"
             android:textSize="24sp"/>
 
     <LinearLayout
@@ -96,7 +97,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="YEAR II"
-            android:textColor="#000"
+            android:textColor="?attr/colorText"
             android:textSize="24sp"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -136,7 +137,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="YEAR III"
-            android:textColor="#000"
+            android:textColor="?attr/colorText"
             android:textSize="24sp"/>
 
     <LinearLayout

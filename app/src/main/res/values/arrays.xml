@@ -9,4 +9,14 @@
         <item>reply</item>
         <item>reply_all</item>
     </string-array>
+
+    <!-- Theme Preference -->
+    <string-array name="pref_theme_titles_entries">
+        <item>Light Theme</item>
+        <item>Dark Theme</item>
+    </string-array>
+    <string-array name="pref_theme_values">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 </resources>

@@ -16,9 +16,9 @@
         android:drawablePadding="16dp"
         android:text="Subjects"
         android:textAllCaps="true"
-        android:textColor="#000"
+        android:textColor="?attr/colorText"
         android:textSize="30sp"
-        app:drawableTint="#0B0A0A" />
+        app:drawableTint="?attr/colorText" />
 
 
     <ListView

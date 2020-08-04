@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#88FFFFFF"> <!-- Ripple color :: WHITE -->
+
+    <item>
+        <color android:color="#00000000" /> <!-- Normal bg color :: RED -->
+    </item>
+
+    <!-- Make sure the ripple doesn't exceed the bounds -->
+    <item>
+        <shape android:shape="rectangle" >
+            <gradient android:startColor="#2BB7F6"
+                android:endColor="#4384EC"
+                android:angle="0"/>
+            <corners android:radius="5dp" />
+        </shape>
+    </item>
+</ripple>

@@ -19,12 +19,12 @@ import android.widget.Button;
 import com.example.msinotes.Models.UtilityClass;
 import com.example.msinotes.R;
 import com.example.msinotes.SubjectsClass;
+import com.example.msinotes.ui.WebFrag.WebrowserFragment;
 import com.example.msinotes.ui.semester.SemesterFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class SubjectInfoFragment extends Fragment
 {
-    public WebView mWebBrowser;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
@@ -33,13 +33,13 @@ public class SubjectInfoFragment extends Fragment
 
         BottomNavigationView navView = getActivity().findViewById(R.id.nav_view);
         navView.setBackgroundResource(R.drawable.rounded_info_button);
+        navView.setVisibility(View.VISIBLE);
 
         String value = getArguments().getString("SubjectCode");
         final SubjectsClass subInfo = UtilityClass.getSubInfo(value);
 
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(subInfo.mSubjectName);
 
-        mWebBrowser = view.findViewById(R.id.webBrowser);
         Button btnNotes = view.findViewById(R.id.btnNotes);
         Button btnBook = view.findViewById(R.id.btnBook);
         Button btnAkash = view.findViewById(R.id.btnAkash);
@@ -48,22 +48,7 @@ public class SubjectInfoFragment extends Fragment
 
         UtilityClass.showToast(value, getContext());
 
-        updateWebViewDefaults(mWebBrowser);
 
-        mWebBrowser.setWebViewClient(new WebViewClient(){
-
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                //progDailog.show();
-                view.loadUrl(url);
-
-                return true;
-            }
-            @Override
-            public void onPageFinished(WebView view, final String url) {
-                //progDailog.dismiss();
-            }
-        });
 
         btnNotes.setOnClickListener(new View.OnClickListener()
         {
@@ -102,34 +87,14 @@ public class SubjectInfoFragment extends Fragment
     }
 
     private  void subButtonClick(String url){
-        mWebBrowser.setVisibility(View.VISIBLE);
-        mWebBrowser.loadUrl(url);
+        WebrowserFragment frag = new WebrowserFragment();
+        Bundle args = new Bundle();
+        args.putString("URL", url);
+        frag.setArguments(args);
+        FragmentTransaction fragTrans = getParentFragmentManager().beginTransaction();
+        fragTrans.setCustomAnimations(R.anim.slide_right, R.anim.nav_default_pop_exit_anim, R.anim.slide_left, R.anim.nav_default_pop_exit_anim);
+        fragTrans.replace(R.id.frame_container, frag).addToBackStack(null);
+        fragTrans.commit();
     }
 
-    private void updateWebViewDefaults(WebView webView) {
-
-        WebSettings settings = webView.getSettings();
-        // Enable Javascript
-        settings.setJavaScriptEnabled(true);
-        settings.setLoadsImagesAutomatically(true);
-        // Configure the client to use when opening URLs
-
-        // Use WideViewport and Zoom out if there is no viewport defined
-        settings.setUseWideViewPort(true);
-        settings.setLoadWithOverviewMode(true);
-
-        // Enable pinch to zoom without the zoom buttons
-        settings.setBuiltInZoomControls(true);
-
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB) {
-            // Hide the zoom controls for HONEYCOMB+
-            settings.setDisplayZoomControls(false);
-        }
-
-        // Enable remote debugging via chrome://inspect
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            WebView.setWebContentsDebuggingEnabled(true);
-        }
-
-    }
 }
