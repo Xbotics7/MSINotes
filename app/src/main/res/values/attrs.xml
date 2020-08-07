@@ -4,5 +4,6 @@
 
         <attr name="colorHomeBg" format="color"/>
         <attr name="colorText" format="color" />
+        <attr name="colorSearch" format="color" />
     </declare-styleable>
 </resources>

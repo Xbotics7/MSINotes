@@ -2,94 +2,95 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.SubjectInfoFragment">
 
-<!--    <WebView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:id="@+id/webBrowser"-->
-<!--        android:visibility="gone"-->
-<!--        android:layout_height="match_parent"/>-->
+    <!--    <WebView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:id="@+id/webBrowser"-->
+    <!--        android:visibility="gone"-->
+    <!--        android:layout_height="match_parent"/>-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="horizontal"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
         <Button
+            android:id="@+id/btnNotes"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
             android:layout_weight="1"
-            android:text="Notes"
-            android:id="@+id/btnNotes"
-            android:textAllCaps="false"
+            android:background="@drawable/rounded_info_button"
             android:drawableTop="@drawable/ic_baseline_notes_90"
             android:paddingTop="10dp"
             android:paddingBottom="15dp"
-            android:textSize="18sp"
-            android:layout_marginTop="8dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:background="@drawable/rounded_info_button"
-            android:textColor="#fff"/>
+            android:text="Notes"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="18sp" />
 
         <Button
+            android:id="@+id/btnAkash"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Akash"
-            android:id="@+id/btnAkash"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
             android:layout_weight="1"
-            android:textAllCaps="false"
+            android:background="@drawable/rounded_info_button"
             android:drawableTop="@drawable/ic_baseline_menu_book_70"
             android:paddingTop="10dp"
             android:paddingBottom="15dp"
-            android:textSize="18sp"
-            android:layout_marginTop="8dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:background="@drawable/rounded_info_button"
-            android:textColor="#fff"/>
+            android:text="Akash"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginTop="30dp"
-        >
+        android:orientation="horizontal">
+
         <Button
+            android:id="@+id/btnBook"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
             android:layout_weight="1"
-            android:text="Book"
-            android:id="@+id/btnBook"
-            android:textAllCaps="false"
+            android:background="@drawable/rounded_info_button"
             android:drawableTop="@drawable/ic_baseline_book_24"
             android:paddingTop="10dp"
             android:paddingBottom="15dp"
-            android:textSize="18sp"
-            android:layout_marginTop="8dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:background="@drawable/rounded_info_button"
-            android:textColor="#fff"/>
+            android:text="Book"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="18sp" />
 
         <Button
+            android:id="@+id/btnSem4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Videos"
-            android:id="@+id/btnSem4"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
             android:layout_weight="1"
-            android:textAllCaps="false"
+            android:background="@drawable/rounded_info_button"
             android:drawableTop="@drawable/ic_baseline_ondemand_video_24"
             android:paddingTop="10dp"
             android:paddingBottom="15dp"
-            android:textSize="18sp"
-            android:layout_marginTop="8dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:background="@drawable/rounded_info_button"
-            android:textColor="#fff"/>
+            android:text="Videos"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="18sp" />
 
     </LinearLayout>
 
@@ -100,38 +101,38 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/btnPprAnalysis"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
             android:layout_weight="1"
-            android:text="Paper Analysis"
-            android:id="@+id/btnPprAnalysis"
-            android:textAllCaps="false"
+            android:background="@drawable/rounded_info_button"
             android:drawableTop="@drawable/ic_baseline_find_in_page_24"
             android:paddingTop="10dp"
             android:paddingBottom="15dp"
-            android:textSize="18sp"
-            android:layout_marginTop="8dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:background="@drawable/rounded_info_button"
-            android:textColor="#fff"/>
+            android:text="Paper Analysis"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="18sp" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="blank"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
             android:layout_weight="1"
-            android:textAllCaps="false"
+            android:background="@drawable/rounded_info_button"
             android:drawableTop="@drawable/ic_baseline_ondemand_video_24"
             android:paddingTop="10dp"
             android:paddingBottom="15dp"
-            android:textSize="18sp"
-            android:layout_marginTop="8dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:background="@drawable/rounded_info_button"
+            android:text="blank"
+            android:textAllCaps="false"
             android:textColor="#fff"
-            android:visibility="invisible"/>
+            android:textSize="18sp"
+            android:visibility="invisible" />
     </LinearLayout>
 
 </LinearLayout>

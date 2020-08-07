@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MSI Notes</string>
+    <string name="app_name">Nomtes</string>
     <string name="title_home">Home</string>
     <string name="title_search">Search</string>
     <string name="title_bookmark">Bookmark</string>
@@ -12,9 +12,10 @@
     <string name="general_header">General</string>
     <string name="about_header">About</string>
 
-    <!-- Messages Preferences -->
-    <!--    <string name="signature_title">Your signature</string>-->
-    <!--    <string name="reply_title">Default reply action</string>-->
+    <!-- General Preferences -->
+    <string name="title_theme">Theme</string>
+    <string name="key_theme">key_theme</string>
+    <string name="summary_theme">Choose theme</string>
 
     <!-- Sync Preferences -->
     <!--    <string name="sync_title">Sync email periodically</string>-->
@@ -39,9 +40,6 @@
     <string name="vaibhav_name">Vaibhav Malhotra</string>
     <string name="vishal_name">Vishal Pal</string>
     <string name="sagar_name">Sagar Jhajjari</string>
-    <string name="title_theme">Theme</string>
-    <string name="key_theme">key_theme</string>
-    <string name="summary_theme">Choose theme</string>
     <string name="talha_name">Talha Wasi</string>
     <string name="upmanyu_name">Upmanyu</string>
 

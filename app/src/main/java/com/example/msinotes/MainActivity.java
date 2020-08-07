@@ -24,13 +24,17 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
 import com.example.msinotes.SettingsActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+{
 
     BottomNavigationView navView;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
 
         SharedPreferences sharedMainPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -47,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
         try
         {
             getSupportActionBar().setElevation(30);
-        }
-        catch (Exception ex){
+        } catch (Exception ex)
+        {
 
         }
 
@@ -61,8 +65,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void setCustomTheme(String key){
-        switch (key){
+    private void setCustomTheme(String key)
+    {
+        switch (key)
+        {
             case "1":
                 setTheme(R.style.light_theme);
                 break;
@@ -75,33 +81,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     private BottomNavigationView.OnNavigationItemSelectedListener navListner = new BottomNavigationView.OnNavigationItemSelectedListener()
     {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item)
         {
             Fragment selectedFragment = null;
-            switch (item.getItemId()){
-                case R.id.navigation_home :
+            switch (item.getItemId())
+            {
+                case R.id.navigation_home:
                     selectedFragment = new HomeFragment();
                     break;
                 case R.id.navigation_search:
                     selectedFragment = new SearchFragment();
                     break;
-                case R.id.navigation_bookmark :
+                case R.id.navigation_bookmark:
                     selectedFragment = new BookmarkFragment();
                     break;
-                    case R.id.navigation_settings :
-                        Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-                        startActivity(intent);
+                case R.id.navigation_settings:
+                    Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                    startActivity(intent);
                     break;
             }
 
-            if(item.getItemId() != R.id.navigation_settings)
+            if (item.getItemId() != R.id.navigation_settings)
             {
 
-                getSupportFragmentManager().beginTransaction().setCustomAnimations( R.anim.nav_default_enter_anim, R.anim.nav_default_exit_anim).replace(R.id.frame_container, selectedFragment).commit();
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.nav_default_enter_anim, R.anim.nav_default_exit_anim).replace(R.id.frame_container, selectedFragment).commit();
             }
             return true;
         }

@@ -42,17 +42,20 @@ public class SemesterFragment extends Fragment
 
         final ArrayList<SubjectsClass> mSubject = new ArrayList<SubjectsClass>();
 
-        UtilityClass.getSubjectsList(mSubject, value, (AppCompatActivity)getActivity());
+
+        UtilityClass.getSubjectsList(mSubject, value, ((AppCompatActivity) getActivity()).getSupportActionBar());
 
 
         OptionsAdaptor adapter = new OptionsAdaptor(getContext(), mSubject);
 
-        final ListView listView = (ListView)view.findViewById(R.id.sub_Name);
+        final ListView listView = (ListView) view.findViewById(R.id.sub_Name);
         listView.setAdapter(adapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+            {
                 SubjectInfoFragment frag = new SubjectInfoFragment();
                 Bundle args = new Bundle();
                 args.putString("SubjectCode", ((SubjectsClass) mSubject.get(position)).mSubjectCode);

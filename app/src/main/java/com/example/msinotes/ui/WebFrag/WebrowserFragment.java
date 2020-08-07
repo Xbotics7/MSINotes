@@ -1,5 +1,6 @@
 package com.example.msinotes.ui.WebFrag;
 
+import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 
 import com.example.msinotes.Models.UtilityClass;
 import com.example.msinotes.R;
@@ -22,6 +24,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class WebrowserFragment extends Fragment
 {
     WebView mWebBrowser;
+    ProgressBar mProgressBar;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
@@ -31,27 +35,42 @@ public class WebrowserFragment extends Fragment
 
         String passedUrl = getArguments().getString("URL");
         mWebBrowser = view.findViewById(R.id.webBrowser);
+        mProgressBar = view.findViewById(R.id.progressBarWeb);
+
         updateWebViewDefaults(mWebBrowser);
 
-        mWebBrowser.setWebViewClient(new WebViewClient(){
+        mWebBrowser.setWebViewClient(new WebViewClient()
+        {
 
             @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            public void onPageStarted(WebView view, String url, Bitmap favicon)
+            {
+                mProgressBar.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url)
+            {
                 //progDailog.show();
                 view.loadUrl(url);
 
                 return true;
             }
+
             @Override
-            public void onPageFinished(WebView view, final String url) {
-                //progDailog.dismiss();
+            public void onPageFinished(WebView view, final String url)
+            {
+                mProgressBar.setVisibility(View.GONE);
             }
+
+
         });
         mWebBrowser.loadUrl(passedUrl);
         return view;
     }
 
-    private void updateWebViewDefaults(WebView webView) {
+    private void updateWebViewDefaults(WebView webView)
+    {
 
         WebSettings settings = webView.getSettings();
         // Enable Javascript
@@ -66,13 +85,15 @@ public class WebrowserFragment extends Fragment
         // Enable pinch to zoom without the zoom buttons
         settings.setBuiltInZoomControls(true);
 
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB) {
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB)
+        {
             // Hide the zoom controls for HONEYCOMB+
             settings.setDisplayZoomControls(false);
         }
 
         // Enable remote debugging via chrome://inspect
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
+        {
             WebView.setWebContentsDebuggingEnabled(true);
         }
 

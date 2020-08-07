@@ -7,6 +7,17 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="actionMenuTextColor">#000</item>
     </style>
-
+    <style name="dark_theme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">#1e1e1e</item>
+        <item name="colorHomeBg">#171717</item>
+        <item name="colorText">#fff</item>
+        <item name="colorSearch">#1e1e1e</item>
+    </style>
+    <style name="light_theme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">#389df1</item>
+        <item name="colorHomeBg">#f4f4f4</item>
+        <item name="colorText">#000</item>
+        <item name="colorSearch">#fff</item>
+    </style>
 
 </resources>

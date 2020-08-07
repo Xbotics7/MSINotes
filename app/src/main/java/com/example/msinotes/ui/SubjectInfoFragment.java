@@ -38,7 +38,7 @@ public class SubjectInfoFragment extends Fragment
         String value = getArguments().getString("SubjectCode");
         final SubjectsClass subInfo = UtilityClass.getSubInfo(value);
 
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(subInfo.mSubjectName);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(subInfo.mSubjectName);
 
         Button btnNotes = view.findViewById(R.id.btnNotes);
         Button btnBook = view.findViewById(R.id.btnBook);
@@ -47,7 +47,6 @@ public class SubjectInfoFragment extends Fragment
 
 
         UtilityClass.showToast(value, getContext());
-
 
 
         btnNotes.setOnClickListener(new View.OnClickListener()
@@ -86,7 +85,8 @@ public class SubjectInfoFragment extends Fragment
         return view;
     }
 
-    private  void subButtonClick(String url){
+    private void subButtonClick(String url)
+    {
         WebrowserFragment frag = new WebrowserFragment();
         Bundle args = new Bundle();
         args.putString("URL", url);

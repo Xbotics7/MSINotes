@@ -16,11 +16,13 @@ import android.widget.TextView;
 import com.example.msinotes.R;
 
 
-public class navigation_settings extends Fragment {
+public class navigation_settings extends Fragment
+{
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+                             ViewGroup container, Bundle savedInstanceState)
+    {
         View root = inflater.inflate(R.layout.fragment_settings, container, false);
 
         return root;
