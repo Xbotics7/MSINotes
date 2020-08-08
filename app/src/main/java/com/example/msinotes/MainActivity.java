@@ -37,36 +37,37 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
 
+        //This stores Theme value index
         SharedPreferences sharedMainPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         String storeStartUpPage = sharedMainPreferences.getString(getString(R.string.key_theme), "1");
+
+        //Function to set theme
         setCustomTheme(storeStartUpPage);
+
         setContentView(R.layout.activity_main);
+
         navView = findViewById(R.id.nav_view);
 
+        //Default fragment to on app launch
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new HomeFragment()).commit();
+
+        //Listener attached to nav view (bottom view)
         navView.setOnNavigationItemSelectedListener(navListner);
 
-        //Shyam Start
-        //This Remove shadows from action bar
         try
         {
+            //Add shadows from action bar
             getSupportActionBar().setElevation(30);
         } catch (Exception ex)
         {
 
         }
 
-        UtilityClass.showToast(storeStartUpPage, this);
-
-        //End
-        //hello secksi boi
-
-        //shyam part 2
-
     }
 
     private void setCustomTheme(String key)
     {
+        // Set Style from style.xml
         switch (key)
         {
             case "1":
@@ -74,8 +75,6 @@ public class MainActivity extends AppCompatActivity
                 break;
             case "2":
                 setTheme(R.style.dark_theme);
-                //RelativeLayout rLayout = findViewById(R.id.container);
-                //rLayout.setBackgroundColor(Color.parseColor("#171717"));
                 break;
         }
     }
@@ -103,10 +102,8 @@ public class MainActivity extends AppCompatActivity
                     startActivity(intent);
                     break;
             }
-
             if (item.getItemId() != R.id.navigation_settings)
             {
-
                 getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.nav_default_enter_anim, R.anim.nav_default_exit_anim).replace(R.id.frame_container, selectedFragment).commit();
             }
             return true;

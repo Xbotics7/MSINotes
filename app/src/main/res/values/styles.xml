@@ -8,7 +8,7 @@
         <item name="actionMenuTextColor">#000</item>
     </style>
     <style name="dark_theme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">#1e1e1e</item>
+        <item name="colorPrimary">#389df1</item>
         <item name="colorHomeBg">#171717</item>
         <item name="colorText">#fff</item>
         <item name="colorSearch">#1e1e1e</item>

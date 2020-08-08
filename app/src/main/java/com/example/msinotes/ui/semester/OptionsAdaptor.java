@@ -47,8 +47,7 @@ public class OptionsAdaptor extends ArrayAdapter<SubjectsClass>
 //                UtilityClass.showToast("test", getContext());
 //            }
 //        });
-        return view;
-        //return initView(position, convertView, parent);
+        return initView(position, convertView, parent);
     }
 
 

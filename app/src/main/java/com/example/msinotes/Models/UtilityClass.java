@@ -17,11 +17,11 @@ public class UtilityClass
     public static void showToast(String message, Context context)
     {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
-
     }
 
     public static void getSubjectsList(ArrayList<SubjectsClass> mSubject)
     {
+        //Gets all subjects from every sem
         getSubjectsList(mSubject, "sem 1", null);
         getSubjectsList(mSubject, "sem 2", null);
         getSubjectsList(mSubject, "sem 3", null);
@@ -32,8 +32,7 @@ public class UtilityClass
 
     public static void getSubjectsList(ArrayList<SubjectsClass> mSubject, String sem, ActionBar actionBar)
     {
-
-
+        //Returns Subjects list according to sem
         switch (sem)
         {
 

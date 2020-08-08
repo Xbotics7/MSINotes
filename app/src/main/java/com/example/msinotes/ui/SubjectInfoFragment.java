@@ -34,6 +34,7 @@ public class SubjectInfoFragment extends Fragment
         BottomNavigationView navView = getActivity().findViewById(R.id.nav_view);
         navView.setBackgroundResource(R.drawable.rounded_info_button);
         navView.setVisibility(View.VISIBLE);
+        navView.getMenu().findItem(R.id.navigation_home).setChecked(true);
 
         String value = getArguments().getString("SubjectCode");
         final SubjectsClass subInfo = UtilityClass.getSubInfo(value);
@@ -44,9 +45,7 @@ public class SubjectInfoFragment extends Fragment
         Button btnBook = view.findViewById(R.id.btnBook);
         Button btnAkash = view.findViewById(R.id.btnAkash);
         Button btnPprAnalysis = view.findViewById(R.id.btnPprAnalysis);
-
-
-        UtilityClass.showToast(value, getContext());
+        Button btnVids = view.findViewById(R.id.btnVideos);
 
 
         btnNotes.setOnClickListener(new View.OnClickListener()
@@ -54,7 +53,10 @@ public class SubjectInfoFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-                subButtonClick(subInfo.mNotes_url);
+                if (subInfo.mNotes_url.equals(""))
+                    UtilityClass.showToast("Not Available right now", getContext());
+                else
+                    subButtonClick(subInfo.mNotes_url);
             }
         });
         btnBook.setOnClickListener(new View.OnClickListener()
@@ -62,7 +64,10 @@ public class SubjectInfoFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-                subButtonClick(subInfo.mBook_url);
+                if (subInfo.mBook_url.equals(""))
+                    UtilityClass.showToast("Not Available right now", getContext());
+                else
+                    subButtonClick(subInfo.mBook_url);
             }
         });
         btnPprAnalysis.setOnClickListener(new View.OnClickListener()
@@ -70,7 +75,10 @@ public class SubjectInfoFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-                subButtonClick(subInfo.mPaper_analysis_url);
+                if (subInfo.mPaper_analysis_url.equals(""))
+                    UtilityClass.showToast("Not Available right now", getContext());
+                else
+                    subButtonClick(subInfo.mPaper_analysis_url);
             }
         });
         btnAkash.setOnClickListener(new View.OnClickListener()
@@ -78,7 +86,18 @@ public class SubjectInfoFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-                subButtonClick(subInfo.mAkash_url);
+                if (subInfo.mAkash_url.equals(""))
+                    UtilityClass.showToast("Not Available right now", getContext());
+                else
+                    subButtonClick(subInfo.mAkash_url);
+            }
+        });
+        btnVids.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                UtilityClass.showToast("Coming soon...", getContext());
             }
         });
 

@@ -41,9 +41,14 @@ public class HomeFragment extends Fragment
         Button btnSem5 = (Button) view.findViewById(R.id.btnSem5);
         Button btnSem6 = (Button) view.findViewById(R.id.btnSem6);
 
+        // Sets Background, Visibility of Nav view
         BottomNavigationView navView = getActivity().findViewById(R.id.nav_view);
         navView.setBackgroundResource(R.drawable.rounded_button);
         navView.setVisibility(View.VISIBLE);
+
+        //Sets Home Button as selected in nav view
+        navView.getMenu().findItem(R.id.navigation_home).setChecked(true);
+
 
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("HOME");
 
@@ -96,35 +101,23 @@ public class HomeFragment extends Fragment
             }
         });
 
-        SharedPreferences sharedMainPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-        String storeStartUpPage = sharedMainPreferences.getString(getString(R.string.key_theme), "1");
-        setTheme(storeStartUpPage, view);
         return view;
     }
 
-    private void setTheme(String key, View v)
-    {
-        LinearLayout homeLayout = v.findViewById(R.id.linear_layout_home);
-        switch (key)
-        {
-            case "1":
-
-                break;
-            case "2":
-                //setTheme(R.style.dark_theme);
-                //homeLayout.setBackgroundColor(Color.parseColor("#171717"));
-                break;
-        }
-    }
 
     private void semButtonClick(String argument)
     {
         FragmentTransaction fragTrans = getParentFragmentManager().beginTransaction();
         SemesterFragment frag = new SemesterFragment();
+
+        // Custom Values to pass as argument when switching to another fragment
         Bundle args = new Bundle();
         args.putString("Key", argument);
         frag.setArguments(args);
+
+        //Sets Custom Animations
         fragTrans.setCustomAnimations(R.anim.slide_right, R.anim.nav_default_pop_exit_anim, R.anim.slide_left, R.anim.nav_default_pop_exit_anim);
+
         fragTrans.replace(R.id.frame_container, frag).addToBackStack(null);
         fragTrans.commit();
     }

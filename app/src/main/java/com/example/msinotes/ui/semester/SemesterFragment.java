@@ -36,6 +36,7 @@ public class SemesterFragment extends Fragment
         BottomNavigationView navView = getActivity().findViewById(R.id.nav_view);
         navView.setBackgroundResource(R.drawable.custom_listview_item);
         navView.setVisibility(View.VISIBLE);
+        navView.getMenu().findItem(R.id.navigation_home).setChecked(true);
 
         String value = getArguments().getString("Key");
 
