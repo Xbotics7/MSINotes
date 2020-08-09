@@ -1,3 +1,1 @@
-# MSINotes
-Yash
-vaibhav
+# Nomets
