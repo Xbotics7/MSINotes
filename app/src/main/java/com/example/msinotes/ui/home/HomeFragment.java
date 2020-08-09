@@ -41,7 +41,7 @@ public class HomeFragment extends Fragment
         Button btnSem5 = (Button) view.findViewById(R.id.btnSem5);
         Button btnSem6 = (Button) view.findViewById(R.id.btnSem6);
 
-        // Sets Background, Visibility of Nav view
+        // Sets Background, Visibility to Visible of Nav view
         BottomNavigationView navView = getActivity().findViewById(R.id.nav_view);
         navView.setBackgroundResource(R.drawable.rounded_button);
         navView.setVisibility(View.VISIBLE);

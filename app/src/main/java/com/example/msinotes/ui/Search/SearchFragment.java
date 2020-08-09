@@ -27,7 +27,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.msinotes.Models.UtilityClass;
 import com.example.msinotes.R;
 import com.example.msinotes.SubjectsClass;
-import com.example.msinotes.ui.SubjectInfoFragment;
+import com.example.msinotes.ui.SubjectInfo.SubjectInfoFragment;
 import com.example.msinotes.ui.semester.OptionsAdaptor;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -179,6 +179,7 @@ public class SearchFragment extends Fragment
         OptionsAdaptor sorted_adapter = new OptionsAdaptor(getContext(), sortedList);
         listView.setAdapter(sorted_adapter);
 
+        //Show Search Container Linear Layout which has Listview
         mLinearSearchCont.setVisibility(View.VISIBLE);
     }
 }

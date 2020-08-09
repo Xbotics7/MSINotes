@@ -31,17 +31,24 @@ public class WebrowserFragment extends Fragment
     {
         View view = inflater.inflate(R.layout.fragment_webrowser, container, false);
         BottomNavigationView navView = getActivity().findViewById(R.id.nav_view);
+
+        // Set nav view visibility to collapse
         navView.setVisibility(View.GONE);
 
+        //Get the passed value sent from the previous fragment
         String passedUrl = getArguments().getString("URL");
+
         mWebBrowser = view.findViewById(R.id.webBrowser);
         mProgressBar = view.findViewById(R.id.progressBarWeb);
 
+        //Method to update necessary webview properties;
         updateWebViewDefaults(mWebBrowser);
 
+        //Set a new client for default webview
         mWebBrowser.setWebViewClient(new WebViewClient()
         {
 
+            //When page begins to load, set progress bar visibility to visible
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon)
             {
@@ -51,12 +58,12 @@ public class WebrowserFragment extends Fragment
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url)
             {
-                //progDailog.show();
                 view.loadUrl(url);
 
                 return true;
             }
 
+            //Set progress bar visibility to gone after webview is finished loading page(in this case pdf)
             @Override
             public void onPageFinished(WebView view, final String url)
             {
@@ -85,11 +92,7 @@ public class WebrowserFragment extends Fragment
         // Enable pinch to zoom without the zoom buttons
         settings.setBuiltInZoomControls(true);
 
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB)
-        {
-            // Hide the zoom controls for HONEYCOMB+
-            settings.setDisplayZoomControls(false);
-        }
+        settings.setDisplayZoomControls(false);
 
         // Enable remote debugging via chrome://inspect
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)

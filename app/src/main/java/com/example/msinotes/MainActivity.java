@@ -13,7 +13,6 @@ import com.example.msinotes.Models.UtilityClass;
 import com.example.msinotes.ui.Search.SearchFragment;
 import com.example.msinotes.ui.bookmark.BookmarkFragment;
 import com.example.msinotes.ui.home.HomeFragment;
-import com.example.msinotes.ui.settings.navigation_settings;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;

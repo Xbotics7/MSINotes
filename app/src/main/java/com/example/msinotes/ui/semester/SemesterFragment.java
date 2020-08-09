@@ -20,7 +20,7 @@ import com.example.msinotes.MainActivity;
 import com.example.msinotes.Models.UtilityClass;
 import com.example.msinotes.R;
 import com.example.msinotes.SubjectsClass;
-import com.example.msinotes.ui.SubjectInfoFragment;
+import com.example.msinotes.ui.SubjectInfo.SubjectInfoFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
@@ -33,17 +33,21 @@ public class SemesterFragment extends Fragment
     {
         View view = inflater.inflate(R.layout.fragment_semester, container, false);
 
+        // Sets Background, Visibility to Visible of Nav view
         BottomNavigationView navView = getActivity().findViewById(R.id.nav_view);
         navView.setBackgroundResource(R.drawable.custom_listview_item);
         navView.setVisibility(View.VISIBLE);
+
+        //Sets Home Button as selected in nav view
         navView.getMenu().findItem(R.id.navigation_home).setChecked(true);
 
+        //Get the passed values sent from previous fragments
         String value = getArguments().getString("Key");
 
 
         final ArrayList<SubjectsClass> mSubject = new ArrayList<SubjectsClass>();
 
-
+        //Method to get subjects items to "mSubject" Array List
         UtilityClass.getSubjectsList(mSubject, value, ((AppCompatActivity) getActivity()).getSupportActionBar());
 
 
@@ -58,10 +62,15 @@ public class SemesterFragment extends Fragment
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
                 SubjectInfoFragment frag = new SubjectInfoFragment();
+
+                // Custom Values to pass as argument when switching to another fragment
                 Bundle args = new Bundle();
                 args.putString("SubjectCode", ((SubjectsClass) mSubject.get(position)).mSubjectCode);
                 frag.setArguments(args);
+
                 FragmentTransaction fragTrans = getParentFragmentManager().beginTransaction();
+
+                //Sets Custom Animations
                 fragTrans.setCustomAnimations(R.anim.slide_right, R.anim.nav_default_pop_exit_anim, R.anim.slide_left, R.anim.nav_default_pop_exit_anim);
                 fragTrans.replace(R.id.frame_container, frag).addToBackStack(null);
                 fragTrans.commit();

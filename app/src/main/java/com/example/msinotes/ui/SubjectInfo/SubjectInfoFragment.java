@@ -1,4 +1,4 @@
-package com.example.msinotes.ui;
+package com.example.msinotes.ui.SubjectInfo;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -31,12 +31,18 @@ public class SubjectInfoFragment extends Fragment
     {
         View view = inflater.inflate(R.layout.fragment_subject_info, container, false);
 
+        // Sets Background, Visibility to Visible of Nav view
         BottomNavigationView navView = getActivity().findViewById(R.id.nav_view);
         navView.setBackgroundResource(R.drawable.rounded_info_button);
         navView.setVisibility(View.VISIBLE);
+
+        //Sets Home Button as selected in nav view
         navView.getMenu().findItem(R.id.navigation_home).setChecked(true);
 
+        //Get the passed value sent from the previous fragment
         String value = getArguments().getString("SubjectCode");
+
+        //Method to get full Subject Class Info by passing subject code
         final SubjectsClass subInfo = UtilityClass.getSubInfo(value);
 
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(subInfo.mSubjectName);
@@ -107,11 +113,17 @@ public class SubjectInfoFragment extends Fragment
     private void subButtonClick(String url)
     {
         WebrowserFragment frag = new WebrowserFragment();
+
+        // Custom Values to pass as argument when switching to another fragment
         Bundle args = new Bundle();
         args.putString("URL", url);
         frag.setArguments(args);
+
         FragmentTransaction fragTrans = getParentFragmentManager().beginTransaction();
+
+        //Sets Custom animation
         fragTrans.setCustomAnimations(R.anim.slide_right, R.anim.nav_default_pop_exit_anim, R.anim.slide_left, R.anim.nav_default_pop_exit_anim);
+
         fragTrans.replace(R.id.frame_container, frag).addToBackStack(null);
         fragTrans.commit();
     }
