@@ -4,6 +4,7 @@ import android.os.Build;
 import android.os.Bundle;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -14,17 +15,28 @@ import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
 
 import com.example.msinotes.Models.UtilityClass;
+import com.example.msinotes.NotesClass;
 import com.example.msinotes.R;
 import com.example.msinotes.SubjectsClass;
 import com.example.msinotes.ui.WebFrag.WebrowserFragment;
+import com.example.msinotes.ui.semester.OptionsAdaptor;
 import com.example.msinotes.ui.semester.SemesterFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class SubjectInfoFragment extends Fragment
 {
+    SubjectsClass subInfo;
+    Button btnNotes;
+    Button btnBook;
+    Button btnAkash;
+    Button btnPprAnalysis;
+    Button btnVids;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
@@ -43,24 +55,28 @@ public class SubjectInfoFragment extends Fragment
         String value = getArguments().getString("SubjectCode");
 
         //Method to get full Subject Class Info by passing subject code
-        final SubjectsClass subInfo = UtilityClass.getSubInfo(value);
+        subInfo = UtilityClass.getSubInfo(value);
 
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(subInfo.mSubjectName);
 
-        Button btnNotes = view.findViewById(R.id.btnNotes);
-        Button btnBook = view.findViewById(R.id.btnBook);
-        Button btnAkash = view.findViewById(R.id.btnAkash);
-        Button btnPprAnalysis = view.findViewById(R.id.btnPprAnalysis);
-        Button btnVids = view.findViewById(R.id.btnVideos);
+        btnNotes = view.findViewById(R.id.btnNotes);
+        btnBook = view.findViewById(R.id.btnBook);
+        btnAkash = view.findViewById(R.id.btnAkash);
+        btnPprAnalysis = view.findViewById(R.id.btnPprAnalysis);
+        btnVids = view.findViewById(R.id.btnVideos);
 
+        //Visibility if url exists or not
+        visibilityButton();
 
         btnNotes.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                if (subInfo.mNotes_url.equals(""))
+                if (subInfo.mNotes_url.equals("") && subInfo.mNotesList_url.size() <= 0)
                     UtilityClass.showToast("Not Available right now", getContext());
+                else if (subInfo.mNotes_url.equals(""))
+                    customPopup();
                 else
                     subButtonClick(subInfo.mNotes_url);
             }
@@ -126,6 +142,37 @@ public class SubjectInfoFragment extends Fragment
 
         fragTrans.replace(R.id.frame_container, frag).addToBackStack(null);
         fragTrans.commit();
+    }
+
+    private void customPopup()
+    {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getContext());
+        View notesPopupView = getLayoutInflater().inflate(R.layout.notes_pop_up, null);
+
+        NotesOptionsAdaptor adapter = new NotesOptionsAdaptor(getContext(), subInfo.mNotesList_url);
+
+        final ListView listView = (ListView) notesPopupView.findViewById(R.id.lv_Notes_Popup);
+        listView.setAdapter(adapter);
+
+        dialogBuilder.setView(notesPopupView);
+        final AlertDialog dialog = dialogBuilder.create();
+        dialog.show();
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+            {
+                subButtonClick(((NotesClass) subInfo.mNotesList_url.get(position)).mNotes_url);
+                dialog.hide();
+            }
+        });
+    }
+
+    private void visibilityButton()
+    {
+        btnBook.setVisibility(subInfo.mBook_url.equals("") ? View.GONE : View.VISIBLE);
+        btnAkash.setVisibility(subInfo.mAkash_url.equals("") ? View.GONE : View.VISIBLE);
+        btnPprAnalysis.setVisibility(subInfo.mPaper_analysis_url.equals("") ? View.GONE : View.VISIBLE);
     }
 
 }

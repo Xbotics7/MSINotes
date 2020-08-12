@@ -7,6 +7,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.msinotes.NotesClass;
 import com.example.msinotes.SubjectsClass;
 
 import java.io.BufferedReader;
@@ -143,6 +144,7 @@ public class UtilityClass
     {
         SubjectsClass mSubject = new SubjectsClass();
         mSubject.mSubjectCode = subCode;
+        mSubject.mNotesList_url  = new ArrayList<NotesClass>();
         switch (subCode)
         {
 
@@ -227,6 +229,10 @@ public class UtilityClass
                 mSubject.mAkash_url = "http://bit.ly/2PvCWdJ";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "http://bit.ly/2OAet6b";
+                mSubject.mNotesList_url.add( new NotesClass("Unit 1: Measure Of Central Tendency and Dispersion", "http://bit.ly/33kFYWG"));
+                mSubject.mNotesList_url.add( new NotesClass("Unit 2: Correlation/Regression", "http://bit.ly/2lNFIhI"));
+                mSubject.mNotesList_url.add( new NotesClass("Unit 3 + 4", "http://bit.ly/2BDFCxW"));
+                mSubject.mNotesList_url.add(new NotesClass("Unit 1 & Unit 2 formulae", "http://bit.ly/2kJRXf9"));
                 break;
             case "BCA 203":
                 mSubject.mSubjectName = "Computer Architecture";
@@ -234,13 +240,21 @@ public class UtilityClass
                 mSubject.mAkash_url = "http://bit.ly/34fTN8E";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "http://bit.ly/2CgyLe6";
+                mSubject.mNotesList_url.add( new NotesClass("Unit 1", "http://bit.ly/2jZUFwO"));
+                mSubject.mNotesList_url.add( new NotesClass("Unit 2", "http://bit.ly/2qAufV8"));
+                mSubject.mNotesList_url.add( new NotesClass("Unit 3", "http://bit.ly/32HIiXm"));
+                mSubject.mNotesList_url.add(new NotesClass("Unit 4", "http://bit.ly/2s23UjH"));
+                mSubject.mNotesList_url.add(new NotesClass("Notes by Mam", "http://bit.ly/2rkb9TK"));
                 break;
             case "BCA 205":
                 mSubject.mSubjectName = "Front End Design Tool VB.Net";
                 mSubject.mNotes_url = "";
                 mSubject.mAkash_url = "http://bit.ly/36qRVvV";
-                mSubject.mBook_url = "";
+                mSubject.mBook_url = "http://bit.ly/35j7Zy7";
                 mSubject.mPaper_analysis_url = "http://bit.ly/36kdFZr";
+                mSubject.mNotesList_url.add( new NotesClass("Unit 1 & 2", "http://bit.ly/2lHp8A9"));
+                mSubject.mNotesList_url.add( new NotesClass("Unit 3 & 4", "http://bit.ly/34OVt9v"));
+
                 break;
             case "BCA 207":
                 mSubject.mSubjectName = "Principles of Accounting";
@@ -248,6 +262,9 @@ public class UtilityClass
                 mSubject.mAkash_url = "http://bit.ly/33qemz8";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "http://bit.ly/2LJo9tx";
+                mSubject.mNotesList_url.add( new NotesClass("Unit 1 & 2", "http://bit.ly/2kuzhQF"));
+                mSubject.mNotesList_url.add( new NotesClass("Unit 2 & 3", "http://bit.ly/2JkyTx1"));
+                mSubject.mNotesList_url.add( new NotesClass("Unit 4", "http://bit.ly/33aeyBW"));
                 break;
             case "BCA 209":
                 mSubject.mSubjectName = "Object Oriented Programming using C++.";
@@ -255,12 +272,16 @@ public class UtilityClass
                 mSubject.mAkash_url = "http://bit.ly/2PKl6SU";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "http://bit.ly/2LXoSr0";
+                mSubject.mNotesList_url.add( new NotesClass("Unit 1: Introduction & C++ Environment", "http://bit.ly/2ZH0oHc"));
+                mSubject.mNotesList_url.add( new NotesClass("Unit 2: Classes & Objects", "http://bit.ly/2ks7Sid"));
+                mSubject.mNotesList_url.add( new NotesClass("Unit 3: Inheritance & Polymorphism", "http://bit.ly/335gMlY"));
+                mSubject.mNotesList_url.add(new NotesClass("Unit 4: Generic Programming", "http://bit.ly/2rdmnJq"));
                 break;
 
             //Semester 4
             case "BCA 202":
                 mSubject.mSubjectName = "Mathematics – IV";
-                mSubject.mNotes_url = "";
+                mSubject.mNotes_url = "http://bit.ly/3bJufoU";
                 mSubject.mAkash_url = "";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "";
@@ -271,13 +292,22 @@ public class UtilityClass
                 mSubject.mAkash_url = "";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "";
+                mSubject.mNotesList_url.add( new NotesClass("Unit 1", "http://bit.ly/37vYnRm"));
+                mSubject.mNotesList_url.add( new NotesClass("Unit 2 - CSS", "http://bit.ly/2I9YjfR"));
+                mSubject.mNotesList_url.add( new NotesClass("Unit 2 - JS", "http://bit.ly/2vnizIm"));
+                mSubject.mNotesList_url.add(new NotesClass("Notes by Mam", "http://bit.ly/2PG9alX"));
                 break;
             case "BCA 206":
                 mSubject.mSubjectName = "Java Programming";
-                mSubject.mNotes_url = "";
+                mSubject.mNotes_url = "http://bit.ly/2Vp4swP";
                 mSubject.mAkash_url = "";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "";
+                mSubject.mNotesList_url.add( new NotesClass("Unit 1", "http://bit.ly/2jZUFwO"));
+                mSubject.mNotesList_url.add( new NotesClass("Unit 2", "http://bit.ly/2qAufV8"));
+                mSubject.mNotesList_url.add( new NotesClass("Unit 3", "http://bit.ly/32HIiXm"));
+                mSubject.mNotesList_url.add(new NotesClass("Unit 4", "http://bit.ly/2s23UjH"));
+                mSubject.mNotesList_url.add(new NotesClass("Notes by Mam", "http://bit.ly/2rkb9TK"));
                 break;
             case "BCA 208":
                 mSubject.mSubjectName = "Software Engineering";
@@ -292,6 +322,8 @@ public class UtilityClass
                 mSubject.mAkash_url = "";
                 mSubject.mBook_url = "http://bit.ly/2TLs1gS";
                 mSubject.mPaper_analysis_url = "";
+                mSubject.mNotesList_url.add( new NotesClass("Unit 1", "http://bit.ly/381S886"));
+                mSubject.mNotesList_url.add( new NotesClass("Unit 2", "http://bit.ly/2IicIGW"));
                 break;
 
             //Semester 5

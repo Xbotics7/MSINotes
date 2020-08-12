@@ -1,5 +1,7 @@
 package com.example.msinotes;
 
+import java.util.ArrayList;
+
 public class SubjectsClass
 {
     public String mSubjectName;
@@ -8,6 +10,7 @@ public class SubjectsClass
     public String mAkash_url;
     public String mBook_url;
     public String mPaper_analysis_url;
+    public ArrayList<NotesClass> mNotesList_url;
 
     public SubjectsClass()
     {
@@ -34,6 +37,4 @@ public class SubjectsClass
     // public String getSubjectCode() {
     // return mSubjectCode;
     //}
-
-
 }
