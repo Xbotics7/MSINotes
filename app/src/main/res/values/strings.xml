@@ -11,6 +11,7 @@
     <!-- Preference Titles -->
     <string name="general_header">General</string>
     <string name="about_header">About</string>
+    <string name="changelog_header">Changelog</string>
 
     <!-- General Preferences -->
     <string name="title_theme">Theme</string>
@@ -25,7 +26,7 @@
     <!--    <string name="attachment_summary_off">Only download attachments when manually requested</string>-->
 
     <!-- About Page Strings -->
-    <string name="app_version">Version 1.01</string>
+    <string name="app_version">Version 1.1.0</string>
     <string name="pref_header_contact">Contact us</string>
     <string name="title_insta">Instagram</string>
     <string name="summary_insta">We\'re also on Instagram</string>

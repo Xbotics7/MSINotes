@@ -62,7 +62,7 @@ public class NotesOptionsAdaptor extends ArrayAdapter<NotesClass>
 
         if (currentItem != null)
         {
-
+            textView.setBackgroundResource(R.drawable.rounded_info_button);
             textView.setText(currentItem.mName);
         }
 

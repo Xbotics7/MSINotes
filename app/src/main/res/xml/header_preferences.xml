@@ -6,6 +6,12 @@
         app:key="general_header"
         app:title="@string/general_header" />
     <Preference
+        app:fragment="com.example.msinotes.SettingsActivity$ChangelogFragment"
+        app:icon="@drawable/ic_baseline_change_history_24"
+        app:key="@string/changelog_header"
+
+        app:title="@string/changelog_header" />
+    <Preference
         app:fragment="com.example.msinotes.SettingsActivity$AboutFragment"
         app:icon="@drawable/ic_baseline_info_24"
         app:key="about_header"

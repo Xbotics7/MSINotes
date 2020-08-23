@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,6 +8,11 @@
     android:background="?attr/colorHomeBg"
     android:padding="20dp">
 
+    <LinearLayout android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_above="@id/linear_layout_syllabus"
+        android:layout_marginBottom="10dp"
+        android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/subView"
@@ -25,9 +30,35 @@
     <ListView
         android:id="@+id/sub_Name"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:divider="#000"
         android:textColor="#000" />
+    </LinearLayout>
 
-</LinearLayout>
+    <LinearLayout android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/linear_layout_syllabus"
+        android:layout_height="wrap_content" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:textSize="25sp"
+        android:textColor="?attr/colorText"
+        android:layout_height="wrap_content"
+        android:text="SYLLABUS" />
+
+    <Button
+        android:id="@+id/btnSyllabus"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/custom_listview_item"
+        android:text="Check Syllabus"
+        android:textAllCaps="false"
+        android:textColor="#fff" />
+    </LinearLayout>
+
+</RelativeLayout>

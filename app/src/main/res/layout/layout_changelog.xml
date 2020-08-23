@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What's New"
+        android:textColor="#171717"
+        android:textSize="19sp"
+        android:textStyle="bold" />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:lineSpacingMultiplier="1.5"
+        android:text="Version 1.1.0\n
+• Added Option to check syllabus.\n
+• Added Changelog UI.\n
+• Updated Subject Info Page.\n
+
+\n Let us know what you want to see next in Nomtes. We are listening!
+\nAs always, Thank you very much for using our app. It means a lot to us!"
+        android:textColor="#1e1e1e"/>
+
+</LinearLayout>

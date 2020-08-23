@@ -34,17 +34,20 @@ public class UtilityClass
     public static void getSubjectsList(ArrayList<SubjectsClass> mSubject, String sem, ActionBar actionBar)
     {
         //Returns Subjects list according to sem
+        if (actionBar != null)
+        {
+            actionBar.setTitle(sem.toUpperCase());
+        }
         switch (sem)
         {
 
             case "sem 1":
-                if (actionBar != null)
-                    actionBar.setTitle("YEAR 1");
                 mSubject.add(getSubInfo("BCA 101"));
                 mSubject.add(getSubInfo("BCA 103"));
                 mSubject.add(getSubInfo("BCA 105"));
                 mSubject.add(getSubInfo("BCA 107"));
                 mSubject.add(getSubInfo("BCA 109"));
+
 //                mSubject.add(new SubjectsClass("Mathematics – I", "BCA 101"));
 //                mSubject.add(new SubjectsClass("Technical Communication", "BCA 103"));
 //                mSubject.add(new SubjectsClass("Programming with C", "BCA 105"));
@@ -52,8 +55,6 @@ public class UtilityClass
 //                mSubject.add(new SubjectsClass("Physics", "BCA 109"));
                 break;
             case "sem 2":
-                if (actionBar != null)
-                    actionBar.setTitle("YEAR 1");
                 mSubject.add(getSubInfo("BCA 102"));
                 mSubject.add(getSubInfo("BCA 104"));
                 mSubject.add(getSubInfo("BCA 106"));
@@ -68,8 +69,6 @@ public class UtilityClass
 
 
             case "sem 3":
-                if (actionBar != null)
-                    actionBar.setTitle("YEAR 2");
                 mSubject.add(getSubInfo("BCA 201"));
                 mSubject.add(getSubInfo("BCA 203"));
                 mSubject.add(getSubInfo("BCA 205"));
@@ -82,8 +81,6 @@ public class UtilityClass
 //                mSubject.add(new SubjectsClass("Object Oriented Programming using C++.", "BCA 209"));
                 break;
             case "sem 4":
-                if (actionBar != null)
-                    actionBar.setTitle("YEAR 2");
                 mSubject.add(getSubInfo("BCA 202"));
                 mSubject.add(getSubInfo("BCA 204"));
                 mSubject.add(getSubInfo("BCA 206"));
@@ -97,8 +94,6 @@ public class UtilityClass
                 break;
 
             case "sem 5":
-                if (actionBar != null)
-                    actionBar.setTitle("YEAR 3");
                 mSubject.add(getSubInfo("BCA 301"));
                 mSubject.add(getSubInfo("BCA 303"));
                 mSubject.add(getSubInfo("BCA 305"));
@@ -116,8 +111,6 @@ public class UtilityClass
 //                mSubject.add(new SubjectsClass("Web Based Programming", "BCA 313"));
 //                mSubject.add(new SubjectsClass("Business Economics", "BCA 315"));
             case "sem 6":
-                if (actionBar != null)
-                    actionBar.setTitle("YEAR 3");
                 mSubject.add(getSubInfo("BCA 302"));
                 mSubject.add(getSubInfo("BCA 304"));
                 mSubject.add(getSubInfo("BCA 306"));
@@ -144,10 +137,9 @@ public class UtilityClass
     {
         SubjectsClass mSubject = new SubjectsClass();
         mSubject.mSubjectCode = subCode;
-        mSubject.mNotesList_url  = new ArrayList<NotesClass>();
+        mSubject.mNotesList_url = new ArrayList<NotesClass>();
         switch (subCode)
         {
-
             //Semester 1
             case "BCA 101":
                 mSubject.mSubjectName = "Mathematics – I";
@@ -229,9 +221,9 @@ public class UtilityClass
                 mSubject.mAkash_url = "http://bit.ly/2PvCWdJ";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "http://bit.ly/2OAet6b";
-                mSubject.mNotesList_url.add( new NotesClass("Unit 1: Measure Of Central Tendency and Dispersion", "http://bit.ly/33kFYWG"));
-                mSubject.mNotesList_url.add( new NotesClass("Unit 2: Correlation/Regression", "http://bit.ly/2lNFIhI"));
-                mSubject.mNotesList_url.add( new NotesClass("Unit 3 + 4", "http://bit.ly/2BDFCxW"));
+                mSubject.mNotesList_url.add(new NotesClass("Unit 1: Measure Of Central Tendency and Dispersion", "http://bit.ly/33kFYWG"));
+                mSubject.mNotesList_url.add(new NotesClass("Unit 2: Correlation/Regression", "http://bit.ly/2lNFIhI"));
+                mSubject.mNotesList_url.add(new NotesClass("Unit 3 + 4", "http://bit.ly/2BDFCxW"));
                 mSubject.mNotesList_url.add(new NotesClass("Unit 1 & Unit 2 formulae", "http://bit.ly/2kJRXf9"));
                 break;
             case "BCA 203":
@@ -240,9 +232,9 @@ public class UtilityClass
                 mSubject.mAkash_url = "http://bit.ly/34fTN8E";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "http://bit.ly/2CgyLe6";
-                mSubject.mNotesList_url.add( new NotesClass("Unit 1", "http://bit.ly/2jZUFwO"));
-                mSubject.mNotesList_url.add( new NotesClass("Unit 2", "http://bit.ly/2qAufV8"));
-                mSubject.mNotesList_url.add( new NotesClass("Unit 3", "http://bit.ly/32HIiXm"));
+                mSubject.mNotesList_url.add(new NotesClass("Unit 1", "http://bit.ly/2jZUFwO"));
+                mSubject.mNotesList_url.add(new NotesClass("Unit 2", "http://bit.ly/2qAufV8"));
+                mSubject.mNotesList_url.add(new NotesClass("Unit 3", "http://bit.ly/32HIiXm"));
                 mSubject.mNotesList_url.add(new NotesClass("Unit 4", "http://bit.ly/2s23UjH"));
                 mSubject.mNotesList_url.add(new NotesClass("Notes by Mam", "http://bit.ly/2rkb9TK"));
                 break;
@@ -252,8 +244,8 @@ public class UtilityClass
                 mSubject.mAkash_url = "http://bit.ly/36qRVvV";
                 mSubject.mBook_url = "http://bit.ly/35j7Zy7";
                 mSubject.mPaper_analysis_url = "http://bit.ly/36kdFZr";
-                mSubject.mNotesList_url.add( new NotesClass("Unit 1 & 2", "http://bit.ly/2lHp8A9"));
-                mSubject.mNotesList_url.add( new NotesClass("Unit 3 & 4", "http://bit.ly/34OVt9v"));
+                mSubject.mNotesList_url.add(new NotesClass("Unit 1 & 2", "http://bit.ly/2lHp8A9"));
+                mSubject.mNotesList_url.add(new NotesClass("Unit 3 & 4", "http://bit.ly/34OVt9v"));
 
                 break;
             case "BCA 207":
@@ -262,9 +254,9 @@ public class UtilityClass
                 mSubject.mAkash_url = "http://bit.ly/33qemz8";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "http://bit.ly/2LJo9tx";
-                mSubject.mNotesList_url.add( new NotesClass("Unit 1 & 2", "http://bit.ly/2kuzhQF"));
-                mSubject.mNotesList_url.add( new NotesClass("Unit 2 & 3", "http://bit.ly/2JkyTx1"));
-                mSubject.mNotesList_url.add( new NotesClass("Unit 4", "http://bit.ly/33aeyBW"));
+                mSubject.mNotesList_url.add(new NotesClass("Unit 1 & 2", "http://bit.ly/2kuzhQF"));
+                mSubject.mNotesList_url.add(new NotesClass("Unit 2 & 3", "http://bit.ly/2JkyTx1"));
+                mSubject.mNotesList_url.add(new NotesClass("Unit 4", "http://bit.ly/33aeyBW"));
                 break;
             case "BCA 209":
                 mSubject.mSubjectName = "Object Oriented Programming using C++.";
@@ -272,9 +264,9 @@ public class UtilityClass
                 mSubject.mAkash_url = "http://bit.ly/2PKl6SU";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "http://bit.ly/2LXoSr0";
-                mSubject.mNotesList_url.add( new NotesClass("Unit 1: Introduction & C++ Environment", "http://bit.ly/2ZH0oHc"));
-                mSubject.mNotesList_url.add( new NotesClass("Unit 2: Classes & Objects", "http://bit.ly/2ks7Sid"));
-                mSubject.mNotesList_url.add( new NotesClass("Unit 3: Inheritance & Polymorphism", "http://bit.ly/335gMlY"));
+                mSubject.mNotesList_url.add(new NotesClass("Unit 1: Introduction & C++ Environment", "http://bit.ly/2ZH0oHc"));
+                mSubject.mNotesList_url.add(new NotesClass("Unit 2: Classes & Objects", "http://bit.ly/2ks7Sid"));
+                mSubject.mNotesList_url.add(new NotesClass("Unit 3: Inheritance & Polymorphism", "http://bit.ly/335gMlY"));
                 mSubject.mNotesList_url.add(new NotesClass("Unit 4: Generic Programming", "http://bit.ly/2rdmnJq"));
                 break;
 
@@ -292,9 +284,9 @@ public class UtilityClass
                 mSubject.mAkash_url = "";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "";
-                mSubject.mNotesList_url.add( new NotesClass("Unit 1", "http://bit.ly/37vYnRm"));
-                mSubject.mNotesList_url.add( new NotesClass("Unit 2 - CSS", "http://bit.ly/2I9YjfR"));
-                mSubject.mNotesList_url.add( new NotesClass("Unit 2 - JS", "http://bit.ly/2vnizIm"));
+                mSubject.mNotesList_url.add(new NotesClass("Unit 1", "http://bit.ly/37vYnRm"));
+                mSubject.mNotesList_url.add(new NotesClass("Unit 2 - CSS", "http://bit.ly/2I9YjfR"));
+                mSubject.mNotesList_url.add(new NotesClass("Unit 2 - JS", "http://bit.ly/2vnizIm"));
                 mSubject.mNotesList_url.add(new NotesClass("Notes by Mam", "http://bit.ly/2PG9alX"));
                 break;
             case "BCA 206":
@@ -303,9 +295,9 @@ public class UtilityClass
                 mSubject.mAkash_url = "";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "";
-                mSubject.mNotesList_url.add( new NotesClass("Unit 1", "http://bit.ly/2jZUFwO"));
-                mSubject.mNotesList_url.add( new NotesClass("Unit 2", "http://bit.ly/2qAufV8"));
-                mSubject.mNotesList_url.add( new NotesClass("Unit 3", "http://bit.ly/32HIiXm"));
+                mSubject.mNotesList_url.add(new NotesClass("Unit 1", "http://bit.ly/2jZUFwO"));
+                mSubject.mNotesList_url.add(new NotesClass("Unit 2", "http://bit.ly/2qAufV8"));
+                mSubject.mNotesList_url.add(new NotesClass("Unit 3", "http://bit.ly/32HIiXm"));
                 mSubject.mNotesList_url.add(new NotesClass("Unit 4", "http://bit.ly/2s23UjH"));
                 mSubject.mNotesList_url.add(new NotesClass("Notes by Mam", "http://bit.ly/2rkb9TK"));
                 break;
@@ -322,8 +314,8 @@ public class UtilityClass
                 mSubject.mAkash_url = "";
                 mSubject.mBook_url = "http://bit.ly/2TLs1gS";
                 mSubject.mPaper_analysis_url = "";
-                mSubject.mNotesList_url.add( new NotesClass("Unit 1", "http://bit.ly/381S886"));
-                mSubject.mNotesList_url.add( new NotesClass("Unit 2", "http://bit.ly/2IicIGW"));
+                mSubject.mNotesList_url.add(new NotesClass("Unit 1", "http://bit.ly/381S886"));
+                mSubject.mNotesList_url.add(new NotesClass("Unit 2", "http://bit.ly/2IicIGW"));
                 break;
 
             //Semester 5
@@ -444,5 +436,32 @@ public class UtilityClass
                 break;
         }
         return mSubject;
+    }
+
+    public static String getSyllabusUrl(String BCACode)
+    {
+        String url = "";
+        switch (BCACode)
+        {
+            case "sem 1":
+                url = "https://drive.google.com/file/d/1NHEBDX6abXhIr_LQ9_7bxFPUZaANIRQV/view";
+                break;
+            case "sem 2":
+                url = "https://drive.google.com/file/d/1z_806K8prZ1XkiHzHJDN1h78YwIflwHt/view";
+                break;
+            case "sem 3":
+                url = "https://drive.google.com/file/d/18Ztc2JiHaPN08dQOLFaCEjebiKSLEorw/view";
+                break;
+            case "sem 4":
+                url = "https://drive.google.com/file/d/13z2ldJHVl6OgvuBfNmJ4qEUcJaYVuLzF/view";
+                break;
+            case "sem 5":
+                url = "https://drive.google.com/file/d/1eTM8sC2TeZkhZbpgdGfqUtVokICH3yeA/view";
+                break;
+            case "sem 6":
+                url = "https://drive.google.com/file/d/1ncmOwCpqmfWrRL2UTg_C5gN7cWB2HJOv/view";
+                break;
+        }
+        return url;
     }
 }

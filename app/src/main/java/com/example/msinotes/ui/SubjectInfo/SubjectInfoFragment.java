@@ -18,6 +18,7 @@ import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.msinotes.Models.UtilityClass;
 import com.example.msinotes.NotesClass;
@@ -30,12 +31,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class SubjectInfoFragment extends Fragment
 {
+    String strSubjectCode;
     SubjectsClass subInfo;
     Button btnNotes;
     Button btnBook;
     Button btnAkash;
     Button btnPprAnalysis;
     Button btnVids;
+    TextView txvSubjectCode;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,19 +55,21 @@ public class SubjectInfoFragment extends Fragment
         navView.getMenu().findItem(R.id.navigation_home).setChecked(true);
 
         //Get the passed value sent from the previous fragment
-        String value = getArguments().getString("SubjectCode");
+        strSubjectCode = getArguments().getString("SubjectCode");
 
         //Method to get full Subject Class Info by passing subject code
-        subInfo = UtilityClass.getSubInfo(value);
+        subInfo = UtilityClass.getSubInfo(strSubjectCode);
 
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(subInfo.mSubjectName);
 
+        txvSubjectCode = view.findViewById(R.id.textview_subject_code);
         btnNotes = view.findViewById(R.id.btnNotes);
         btnBook = view.findViewById(R.id.btnBook);
         btnAkash = view.findViewById(R.id.btnAkash);
         btnPprAnalysis = view.findViewById(R.id.btnPprAnalysis);
         btnVids = view.findViewById(R.id.btnVideos);
 
+        txvSubjectCode.setText(strSubjectCode.toUpperCase());
         //Visibility if url exists or not
         visibilityButton();
 

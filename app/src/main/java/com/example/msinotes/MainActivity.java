@@ -7,15 +7,20 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.KeyEvent;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.example.msinotes.Models.UtilityClass;
 import com.example.msinotes.ui.Search.SearchFragment;
+import com.example.msinotes.ui.SubjectInfo.NotesOptionsAdaptor;
 import com.example.msinotes.ui.bookmark.BookmarkFragment;
 import com.example.msinotes.ui.home.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -61,6 +66,7 @@ public class MainActivity extends AppCompatActivity
         {
 
         }
+        changelogPop();
 
     }
 
@@ -78,6 +84,43 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    private void changelogPop()
+    {
+        SharedPreferences sharedMainPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean _showChangelog = false;
+        if (sharedMainPreferences.contains("changelog_val"))
+        {
+            String storeStartUpPage = sharedMainPreferences.getString("changelog_val", getString(R.string.app_version));
+            if (storeStartUpPage.equals(getString(R.string.app_version)))
+            {
+                _showChangelog = false;
+            } else
+            {
+                _showChangelog = true;
+                SharedPreferences.Editor editor = sharedMainPreferences.edit();
+                editor.putString("changelog_val", getString(R.string.app_version));
+                editor.apply();
+            }
+
+        } else
+        {
+            _showChangelog = true;
+            SharedPreferences.Editor editor = sharedMainPreferences.edit();
+            editor.putString("changelog_val", getString(R.string.app_version));
+            editor.apply();
+        }
+
+        _showChangelog = true;
+        if (_showChangelog)
+        {
+            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+            View changelogPopupView = getLayoutInflater().inflate(R.layout.layout_changelog, null);
+
+            dialogBuilder.setView(changelogPopupView);
+            final AlertDialog dialog = dialogBuilder.create();
+            dialog.show();
+        }
+    }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListner = new BottomNavigationView.OnNavigationItemSelectedListener()
     {

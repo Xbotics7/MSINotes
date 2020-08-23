@@ -187,6 +187,19 @@ public class SettingsActivity extends AppCompatActivity implements
 
     }
 
+    public static class ChangelogFragment extends PreferenceFragmentCompat
+    {
+
+        @Override
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey)
+        {
+            setPreferencesFromResource(R.xml.changelog_preferences, rootKey);
+
+
+        }
+
+    }
+
 
     //    public static class SyncFragment extends PreferenceFragmentCompat
 //    {

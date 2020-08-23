@@ -10,6 +10,7 @@ public class SubjectsClass
     public String mAkash_url;
     public String mBook_url;
     public String mPaper_analysis_url;
+    public String mSyllabus_url;
     public ArrayList<NotesClass> mNotesList_url;
 
     public SubjectsClass()

@@ -64,7 +64,7 @@ public class OptionsAdaptor extends ArrayAdapter<SubjectsClass>
 
         if (currentItem != null)
         {
-
+            textView.setBackgroundResource(R.drawable.custom_listview_item);
             textView.setText(currentItem.mSubjectName);
         }
 
