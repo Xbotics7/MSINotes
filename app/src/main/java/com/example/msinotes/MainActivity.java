@@ -110,7 +110,6 @@ public class MainActivity extends AppCompatActivity
             editor.apply();
         }
 
-        _showChangelog = true;
         if (_showChangelog)
         {
             AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);

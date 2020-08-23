@@ -6,16 +6,16 @@
         <color android:color="#00000000" /> <!-- Normal bg color :: RED -->
     </item>
     <item android:left="5dp" android:right="5dp">
-        <bitmap android:src="@drawable/img_notes" />
+        <bitmap android:src="@drawable/img_ppr" />
     </item>
     <item>
 
         <shape android:shape="rectangle">
             <gradient
                 android:angle="0"
-                android:startColor="#FC6670"
-                android:centerColor="#FD8356"
-                android:endColor="#00FD8356" />
+                android:startColor="#848484"
+                android:centerColor="#AFAFAF"
+                android:endColor="#00AFAFAF" />
             <corners android:radius="5dp" />
 
         </shape>

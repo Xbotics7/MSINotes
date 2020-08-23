@@ -2,6 +2,9 @@ package com.example.msinotes.Models;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Build;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
@@ -9,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.msinotes.NotesClass;
 import com.example.msinotes.SubjectsClass;
+import com.example.msinotes.YoutubeClass;
 
 import java.io.BufferedReader;
 import java.util.ArrayList;
@@ -138,6 +142,7 @@ public class UtilityClass
         SubjectsClass mSubject = new SubjectsClass();
         mSubject.mSubjectCode = subCode;
         mSubject.mNotesList_url = new ArrayList<NotesClass>();
+        mSubject.mYoutube_url = new ArrayList<YoutubeClass>();
         switch (subCode)
         {
             //Semester 1
@@ -147,6 +152,7 @@ public class UtilityClass
                 mSubject.mAkash_url = "http://bit.ly/2JLqQcV";
                 mSubject.mBook_url = "http://bit.ly/2YJBwNW";
                 mSubject.mPaper_analysis_url = "http://bit.ly/2qtebF7";
+                mSubject.mYoutube_url.add(new YoutubeClass("Maths", "https://www.youtube.com/playlist?list=PLSUTYSVj7etzxi3o_dnEab50DFYIOgsI3"));
                 break;
             case "BCA 103":
                 mSubject.mSubjectName = "Technical Communication";
@@ -281,7 +287,7 @@ public class UtilityClass
             case "BCA 204":
                 mSubject.mSubjectName = "Web Technologies";
                 mSubject.mNotes_url = "";
-                mSubject.mAkash_url = "";
+                mSubject.mAkash_url = "https://bit.ly/3g5d9nN";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "";
                 mSubject.mNotesList_url.add(new NotesClass("Unit 1", "http://bit.ly/37vYnRm"));
@@ -295,11 +301,6 @@ public class UtilityClass
                 mSubject.mAkash_url = "";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "";
-                mSubject.mNotesList_url.add(new NotesClass("Unit 1", "http://bit.ly/2jZUFwO"));
-                mSubject.mNotesList_url.add(new NotesClass("Unit 2", "http://bit.ly/2qAufV8"));
-                mSubject.mNotesList_url.add(new NotesClass("Unit 3", "http://bit.ly/32HIiXm"));
-                mSubject.mNotesList_url.add(new NotesClass("Unit 4", "http://bit.ly/2s23UjH"));
-                mSubject.mNotesList_url.add(new NotesClass("Notes by Mam", "http://bit.ly/2rkb9TK"));
                 break;
             case "BCA 208":
                 mSubject.mSubjectName = "Software Engineering";
@@ -463,5 +464,65 @@ public class UtilityClass
                 break;
         }
         return url;
+    }
+
+    public static void updateWebViewDefaults(WebView webView)
+    {
+
+        WebSettings settings = webView.getSettings();
+        // Enable Javascript
+        settings.setJavaScriptEnabled(true);
+        settings.setLoadsImagesAutomatically(true);
+        // Configure the client to use when opening URLs
+
+        // Use WideViewport and Zoom out if there is no viewport defined
+        settings.setUseWideViewPort(true);
+        settings.setLoadWithOverviewMode(true);
+
+        // Enable pinch to zoom without the zoom buttons
+        settings.setBuiltInZoomControls(true);
+
+        settings.setDisplayZoomControls(false);
+
+        // Enable remote debugging via chrome://inspect
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
+        {
+            WebView.setWebContentsDebuggingEnabled(true);
+        }
+
+    }
+
+    public static void injectJavascript(WebView web, String style)
+    {
+        try
+        {
+            style = style.replace("\r", "");
+            style = "javascript:function addStyleString(str) { var node = document.createElement('style'); node.innerHTML = " +
+                    "str; document.body.appendChild(node); } addStyleString('" + style + "');";
+
+            web.loadUrl(style);
+        } catch (Exception e)
+        {
+
+        }
+    }
+
+    public static String getCustomHtml(String src)
+    {
+        String _html = "<!DOCTYPE html>\n" +
+                "<html>\n" +
+                "<body>\n" +
+                "<iframe class=\"ytframe\" width=\"100%\" height=\"600\" src=\"https://www.youtube.com/embed/" +
+                src +
+                "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n" +
+                "</body>\n" +
+                "</html>";
+        return _html;
+    }
+
+    public static String getCSS(){
+        String css= ".mobile-topbar-header, ytm-pivot-bar-renderer, .compact-media-item-menu, .playlist-header-actions {display: none;} " +
+                "ytm-app.sticky-player {padding-top: 0;}";
+        return css;
     }
 }

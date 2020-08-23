@@ -12,6 +12,7 @@ public class SubjectsClass
     public String mPaper_analysis_url;
     public String mSyllabus_url;
     public ArrayList<NotesClass> mNotesList_url;
+    public ArrayList<YoutubeClass> mYoutube_url;
 
     public SubjectsClass()
     {

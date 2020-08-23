@@ -20,9 +20,11 @@
         android:layout_marginTop="10dp"
         android:lineSpacingMultiplier="1.5"
         android:text="Version 1.1.0\n
-• Added Option to check syllabus.\n
-• Added Changelog UI.\n
-• Updated Subject Info Page.\n
+• Videos for respective subjects are now finally available to watch.\n
+• ''New'' Added Option to check syllabus.\n
+• ''New'' Added Changelog UI.\n
+• Re-designed Subject Info Page.\n
+• Bugs Fixes and Performance Improvements.\n
 
 \n Let us know what you want to see next in Nomtes. We are listening!
 \nAs always, Thank you very much for using our app. It means a lot to us!"

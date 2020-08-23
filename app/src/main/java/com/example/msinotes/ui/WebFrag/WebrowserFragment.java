@@ -42,7 +42,7 @@ public class WebrowserFragment extends Fragment
         mProgressBar = view.findViewById(R.id.progressBarWeb);
 
         //Method to update necessary webview properties;
-        updateWebViewDefaults(mWebBrowser);
+        UtilityClass.updateWebViewDefaults(mWebBrowser);
 
         //Set a new client for default webview
         mWebBrowser.setWebViewClient(new WebViewClient()
@@ -72,33 +72,11 @@ public class WebrowserFragment extends Fragment
 
 
         });
+
         mWebBrowser.loadUrl(passedUrl);
         return view;
     }
 
-    private void updateWebViewDefaults(WebView webView)
-    {
 
-        WebSettings settings = webView.getSettings();
-        // Enable Javascript
-        settings.setJavaScriptEnabled(true);
-        settings.setLoadsImagesAutomatically(true);
-        // Configure the client to use when opening URLs
 
-        // Use WideViewport and Zoom out if there is no viewport defined
-        settings.setUseWideViewPort(true);
-        settings.setLoadWithOverviewMode(true);
-
-        // Enable pinch to zoom without the zoom buttons
-        settings.setBuiltInZoomControls(true);
-
-        settings.setDisplayZoomControls(false);
-
-        // Enable remote debugging via chrome://inspect
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
-        {
-            WebView.setWebContentsDebuggingEnabled(true);
-        }
-
-    }
 }

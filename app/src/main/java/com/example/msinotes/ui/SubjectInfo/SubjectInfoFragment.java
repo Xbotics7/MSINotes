@@ -27,6 +27,7 @@ import com.example.msinotes.SubjectsClass;
 import com.example.msinotes.ui.WebFrag.WebrowserFragment;
 import com.example.msinotes.ui.semester.OptionsAdaptor;
 import com.example.msinotes.ui.semester.SemesterFragment;
+import com.example.msinotes.ui.ytpage.YoutubeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class SubjectInfoFragment extends Fragment
@@ -48,7 +49,7 @@ public class SubjectInfoFragment extends Fragment
 
         // Sets Background, Visibility to Visible of Nav view
         BottomNavigationView navView = getActivity().findViewById(R.id.nav_view);
-        navView.setBackgroundResource(R.drawable.rounded_info_button);
+        navView.setBackgroundResource(R.drawable.custom_listview_item);
         navView.setVisibility(View.VISIBLE);
 
         //Sets Home Button as selected in nav view
@@ -124,7 +125,29 @@ public class SubjectInfoFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-                UtilityClass.showToast("Coming soon...", getContext());
+                if (subInfo.mYoutube_url.size() > 0)
+                {
+                    if (subInfo.mYoutube_url.size() == 1)
+                    {
+                        YoutubeFragment frag = new YoutubeFragment();
+
+                        // Custom Values to pass as argument when switching to another fragment
+                        Bundle args = new Bundle();
+                        args.putString("URL", subInfo.mYoutube_url.get(0).yt_playlist_url);
+                        frag.setArguments(args);
+
+                        FragmentTransaction fragTrans = getParentFragmentManager().beginTransaction();
+
+                        //Sets Custom animation
+                        fragTrans.setCustomAnimations(R.anim.slide_right, R.anim.nav_default_pop_exit_anim, R.anim.slide_left, R.anim.nav_default_pop_exit_anim);
+
+                        fragTrans.replace(R.id.frame_container, frag).addToBackStack(null);
+                        fragTrans.commit();
+                    }
+                } else
+                {
+                    UtilityClass.showToast("Not Available right now", getContext());
+                }
             }
         });
 
