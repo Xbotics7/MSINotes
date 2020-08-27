@@ -4,61 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="?attr/colorHomeBg"
+    android:orientation="vertical"
     android:padding="20dp">
 
-    <LinearLayout android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_above="@id/linear_layout_syllabus"
-        android:layout_marginBottom="10dp"
-        android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/subView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableStart="@drawable/ic_baseline_notes_24"
-        android:drawablePadding="16dp"
-        android:text="Subjects"
-        android:textAllCaps="true"
-        android:textColor="?attr/colorText"
-        android:textSize="30sp"
-        app:drawableTint="?attr/colorText" />
-
-
-    <ListView
-        android:id="@+id/sub_Name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:divider="#000"
-        android:textColor="#000" />
-    </LinearLayout>
-
-    <LinearLayout android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_marginBottom="10dp"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/linear_layout_syllabus"
-        android:layout_height="wrap_content" >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:textSize="25sp"
-        android:textColor="?attr/colorText"
-        android:layout_height="wrap_content"
-        android:text="SYLLABUS" />
-
-    <Button
-        android:id="@+id/btnSyllabus"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/custom_listview_item"
-        android:text="Check Syllabus"
-        android:textAllCaps="false"
-        android:textColor="#fff" />
+        android:layout_above="@id/linear_layout_syllabus"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/subView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_baseline_subject_24"
+            android:drawablePadding="10dp"
+            android:text="Subjects"
+            android:textAllCaps="true"
+            android:textColor="?attr/colorText"
+            android:textSize="30sp"/>
+
+
+        <ListView
+            android:id="@+id/sub_Name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="10dp"
+            android:textColor="#000" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_layout_syllabus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SYLLABUS"
+            android:textColor="?attr/colorText"
+            android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/btnSyllabus"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/custom_listview_item"
+            android:text="Check Syllabus"
+            android:textAllCaps="false"
+            android:textColor="#fff" />
     </LinearLayout>
 
 </RelativeLayout>

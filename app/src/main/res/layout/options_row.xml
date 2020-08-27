@@ -1,20 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:layout_height="wrap_content"
+    android:background="@drawable/custom_listview_item"
+    android:orientation="vertical"
+    android:paddingTop="10dp"
+    android:descendantFocusability="blocksDescendants"
+    android:paddingBottom="10dp">
 
-
-    <TextView
-        android:id="@+id/sub_Name"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/custom_listview_item"
-        android:padding="16dp"
-        android:text="Notes"
-        android:textColor="#fff" />
+        android:layout_marginStart="16dp">
+
+        <TextView
+            android:id="@+id/sub_Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Notes"
+            android:textColor="#fff" />
+
+        <ImageButton
+            android:id="@+id/btnMoreInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+            android:tint="#fff"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_layout_lv_moreinfo"
+        android:layout_width="match_parent"
+        android:layout_height="98dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#fff" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnNotesMoreInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:drawableTop="@drawable/ic_baseline_notes_24"
+                android:padding="0dp"
+                android:text="Notes"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btnAkashMoreInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:drawableTop="@drawable/ic_baseline_menu_book_sm"
+                android:gravity="center"
+                android:text="Akash"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btnBookMoreInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:drawableTop="@drawable/ic_baseline_book_sm"
+                android:gravity="center"
+                android:text="Books"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btnVideosMoreInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:drawableTop="@drawable/ic_baseline_ondemand_video_sm"
+                android:text="Videos"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textview_sc_moreinfo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:drawablePadding="5dp"
+            android:layout_marginTop="2dp"
+            android:drawableStart="@drawable/ic_baseline_info_sm"
+            android:paddingStart="25dp"
+            android:text="BCA 101"
+            android:textColor="#fff"
+            android:textSize="12sp"/>
+    </LinearLayout>
     <!--    <TextView-->
     <!--        android:layout_width="wrap_content"-->
     <!--        android:layout_height="wrap_content"-->
@@ -31,4 +133,4 @@
     <!--        android:layout_alignParentRight="true"-->
     <!--        android:height="10dp" />-->
 
-</RelativeLayout>
+</LinearLayout>

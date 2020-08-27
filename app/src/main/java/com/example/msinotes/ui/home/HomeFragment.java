@@ -57,7 +57,7 @@ public class HomeFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-                semButtonClick("sem 1");
+                semButtonClick("semester 1");
             }
         });
         btnSem2.setOnClickListener(new View.OnClickListener()
@@ -65,7 +65,7 @@ public class HomeFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-                semButtonClick("sem 2");
+                semButtonClick("semester 2");
             }
         });
         btnSem3.setOnClickListener(new View.OnClickListener()
@@ -73,7 +73,7 @@ public class HomeFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-                semButtonClick("sem 3");
+                semButtonClick("semester 3");
             }
         });
         btnSem4.setOnClickListener(new View.OnClickListener()
@@ -81,7 +81,7 @@ public class HomeFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-                semButtonClick("sem 4");
+                semButtonClick("semester 4");
             }
         });
         btnSem5.setOnClickListener(new View.OnClickListener()
@@ -89,7 +89,7 @@ public class HomeFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-                semButtonClick("sem 5");
+                semButtonClick("semester 5");
             }
         });
         btnSem6.setOnClickListener(new View.OnClickListener()
@@ -97,7 +97,7 @@ public class HomeFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-                semButtonClick("sem 6");
+                semButtonClick("semester 6");
             }
         });
 

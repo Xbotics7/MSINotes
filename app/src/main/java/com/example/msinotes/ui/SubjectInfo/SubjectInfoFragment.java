@@ -24,6 +24,7 @@ import com.example.msinotes.Models.UtilityClass;
 import com.example.msinotes.NotesClass;
 import com.example.msinotes.R;
 import com.example.msinotes.SubjectsClass;
+import com.example.msinotes.YoutubeClass;
 import com.example.msinotes.ui.WebFrag.WebrowserFragment;
 import com.example.msinotes.ui.semester.OptionsAdaptor;
 import com.example.msinotes.ui.semester.SemesterFragment;
@@ -82,7 +83,7 @@ public class SubjectInfoFragment extends Fragment
                 if (subInfo.mNotes_url.equals("") && subInfo.mNotesList_url.size() <= 0)
                     UtilityClass.showToast("Not Available right now", getContext());
                 else if (subInfo.mNotes_url.equals(""))
-                    customPopup();
+                    customNotesPopup();
                 else
                     subButtonClick(subInfo.mNotes_url);
             }
@@ -129,20 +130,10 @@ public class SubjectInfoFragment extends Fragment
                 {
                     if (subInfo.mYoutube_url.size() == 1)
                     {
-                        YoutubeFragment frag = new YoutubeFragment();
-
-                        // Custom Values to pass as argument when switching to another fragment
-                        Bundle args = new Bundle();
-                        args.putString("URL", subInfo.mYoutube_url.get(0).yt_playlist_url);
-                        frag.setArguments(args);
-
-                        FragmentTransaction fragTrans = getParentFragmentManager().beginTransaction();
-
-                        //Sets Custom animation
-                        fragTrans.setCustomAnimations(R.anim.slide_right, R.anim.nav_default_pop_exit_anim, R.anim.slide_left, R.anim.nav_default_pop_exit_anim);
-
-                        fragTrans.replace(R.id.frame_container, frag).addToBackStack(null);
-                        fragTrans.commit();
+                        ytButtonClick(subInfo.mYoutube_url.get(0).yt_playlist_url);
+                    } else
+                    {
+                        customYTPopup();
                     }
                 } else
                 {
@@ -172,7 +163,25 @@ public class SubjectInfoFragment extends Fragment
         fragTrans.commit();
     }
 
-    private void customPopup()
+    private void ytButtonClick(String url)
+    {
+        YoutubeFragment frag = new YoutubeFragment();
+
+        // Custom Values to pass as argument when switching to another fragment
+        Bundle args = new Bundle();
+        args.putString("URL", url);
+        frag.setArguments(args);
+
+        FragmentTransaction fragTrans = getParentFragmentManager().beginTransaction();
+
+        //Sets Custom animation
+        fragTrans.setCustomAnimations(R.anim.slide_right, R.anim.nav_default_pop_exit_anim, R.anim.slide_left, R.anim.nav_default_pop_exit_anim);
+
+        fragTrans.replace(R.id.frame_container, frag).addToBackStack(null);
+        fragTrans.commit();
+    }
+
+    private void customNotesPopup()
     {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getContext());
         View notesPopupView = getLayoutInflater().inflate(R.layout.notes_pop_up, null);
@@ -191,6 +200,30 @@ public class SubjectInfoFragment extends Fragment
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
                 subButtonClick(((NotesClass) subInfo.mNotesList_url.get(position)).mNotes_url);
+                dialog.hide();
+            }
+        });
+    }
+
+    private void customYTPopup()
+    {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getContext());
+        View ytPopupView = getLayoutInflater().inflate(R.layout.yt_pop_up, null);
+
+        YTOptionsAdaptor adapter = new YTOptionsAdaptor(getContext(), subInfo.mYoutube_url);
+
+        final ListView listView = (ListView) ytPopupView.findViewById(R.id.lv_YT_Popup);
+        listView.setAdapter(adapter);
+
+        dialogBuilder.setView(ytPopupView);
+        final AlertDialog dialog = dialogBuilder.create();
+        dialog.show();
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+            {
+                ytButtonClick(((YoutubeClass) subInfo.mYoutube_url.get(position)).yt_playlist_url);
                 dialog.hide();
             }
         });

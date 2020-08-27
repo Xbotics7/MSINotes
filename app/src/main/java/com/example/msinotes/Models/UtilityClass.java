@@ -27,12 +27,12 @@ public class UtilityClass
     public static void getSubjectsList(ArrayList<SubjectsClass> mSubject)
     {
         //Gets all subjects from every sem
-        getSubjectsList(mSubject, "sem 1", null);
-        getSubjectsList(mSubject, "sem 2", null);
-        getSubjectsList(mSubject, "sem 3", null);
-        getSubjectsList(mSubject, "sem 4", null);
-        getSubjectsList(mSubject, "sem 5", null);
-        getSubjectsList(mSubject, "sem 6", null);
+        getSubjectsList(mSubject, "semester 1", null);
+        getSubjectsList(mSubject, "semester 2", null);
+        getSubjectsList(mSubject, "semester 3", null);
+        getSubjectsList(mSubject, "semester 4", null);
+        getSubjectsList(mSubject, "semester 5", null);
+        getSubjectsList(mSubject, "semester 6", null);
     }
 
     public static void getSubjectsList(ArrayList<SubjectsClass> mSubject, String sem, ActionBar actionBar)
@@ -45,7 +45,7 @@ public class UtilityClass
         switch (sem)
         {
 
-            case "sem 1":
+            case "semester 1":
                 mSubject.add(getSubInfo("BCA 101"));
                 mSubject.add(getSubInfo("BCA 103"));
                 mSubject.add(getSubInfo("BCA 105"));
@@ -58,7 +58,7 @@ public class UtilityClass
 //                mSubject.add(new SubjectsClass("Introduction to Computers & IT", "BCA 107"));
 //                mSubject.add(new SubjectsClass("Physics", "BCA 109"));
                 break;
-            case "sem 2":
+            case "semester 2":
                 mSubject.add(getSubInfo("BCA 102"));
                 mSubject.add(getSubInfo("BCA 104"));
                 mSubject.add(getSubInfo("BCA 106"));
@@ -72,7 +72,7 @@ public class UtilityClass
                 break;
 
 
-            case "sem 3":
+            case "semester 3":
                 mSubject.add(getSubInfo("BCA 201"));
                 mSubject.add(getSubInfo("BCA 203"));
                 mSubject.add(getSubInfo("BCA 205"));
@@ -84,7 +84,7 @@ public class UtilityClass
 //                mSubject.add(new SubjectsClass("Principles of Accounting", "BCA 207"));
 //                mSubject.add(new SubjectsClass("Object Oriented Programming using C++.", "BCA 209"));
                 break;
-            case "sem 4":
+            case "semester 4":
                 mSubject.add(getSubInfo("BCA 202"));
                 mSubject.add(getSubInfo("BCA 204"));
                 mSubject.add(getSubInfo("BCA 206"));
@@ -97,7 +97,7 @@ public class UtilityClass
 //                mSubject.add(new SubjectsClass("Computer Networks", "BCA 210"));
                 break;
 
-            case "sem 5":
+            case "semester 5":
                 mSubject.add(getSubInfo("BCA 301"));
                 mSubject.add(getSubInfo("BCA 303"));
                 mSubject.add(getSubInfo("BCA 305"));
@@ -114,7 +114,7 @@ public class UtilityClass
 //                mSubject.add(new SubjectsClass("Advance Computer Networks", "BCA 311"));
 //                mSubject.add(new SubjectsClass("Web Based Programming", "BCA 313"));
 //                mSubject.add(new SubjectsClass("Business Economics", "BCA 315"));
-            case "sem 6":
+            case "semester 6":
                 mSubject.add(getSubInfo("BCA 302"));
                 mSubject.add(getSubInfo("BCA 304"));
                 mSubject.add(getSubInfo("BCA 306"));
@@ -152,7 +152,10 @@ public class UtilityClass
                 mSubject.mAkash_url = "http://bit.ly/2JLqQcV";
                 mSubject.mBook_url = "http://bit.ly/2YJBwNW";
                 mSubject.mPaper_analysis_url = "http://bit.ly/2qtebF7";
-                mSubject.mYoutube_url.add(new YoutubeClass("Maths", "https://www.youtube.com/playlist?list=PLSUTYSVj7etzxi3o_dnEab50DFYIOgsI3"));
+                mSubject.mYoutube_url.add(new YoutubeClass("Determinant", "https://www.youtube.com/playlist?list=PLSUTYSVj7etzxi3o_dnEab50DFYIOgsI3"));
+                mSubject.mYoutube_url.add(new YoutubeClass("Differential Calculas", "https://www.youtube.com/playlist?list=PLSUTYSVj7etzYljLRSVKrfnNBlGCvyp6E"));
+                mSubject.mYoutube_url.add(new YoutubeClass("Differentiation", "https://www.youtube.com/playlist?list=PLHz3_2lRlEzpSkcheaJizPNyldHCiFBkC"));
+                mSubject.mYoutube_url.add(new YoutubeClass("Integrations", "https://www.youtube.com/playlist?list=PLkW3zC7NnNHYIBBZeXCex_YETRDCtre4u"));
                 break;
             case "BCA 103":
                 mSubject.mSubjectName = "Technical Communication";
@@ -167,6 +170,8 @@ public class UtilityClass
                 mSubject.mAkash_url = "http://bit.ly/36sGzaq";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "http://bit.ly/2KD4r26";
+                mSubject.mYoutube_url.add(new YoutubeClass("Videos List 1", "https://www.youtube.com/playlist?list=PLLioQ130_xjVgW5MVfLS1s7zfLFAbGIVs"));
+                mSubject.mYoutube_url.add(new YoutubeClass("Videos List 2", "https://www.youtube.com/playlist?list=PLVlQHNRLflP8IGz6OXwlV_lgHgc72aXlh"));
                 break;
             case "BCA 107":
                 mSubject.mSubjectName = "Introduction to Computers & IT";
@@ -174,6 +179,7 @@ public class UtilityClass
                 mSubject.mAkash_url = "http://bit.ly/36jH8DA";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "http://bit.ly/2KDmC7P";
+                mSubject.mYoutube_url.add(new YoutubeClass("Computer Fundamentals", "https://www.youtube.com/playlist?list=PLWPirh4EWFpF_2T13UeEgZWZHc8nHBuXp"));
                 break;
             case "BCA 109":
                 mSubject.mSubjectName = "Physics";
@@ -190,6 +196,10 @@ public class UtilityClass
                 mSubject.mAkash_url = "http://bit.ly/2VMFqZ6";
                 mSubject.mBook_url = "http://bit.ly/2IeMGXT";
                 mSubject.mPaper_analysis_url = "http://bit.ly/2VlqvAx";
+                mSubject.mYoutube_url.add(new YoutubeClass("Sets", "https://www.youtube.com/playlist?list=PLHz3_2lRlEzqT6B1h-AhgtvIbdbK9RRb-"));
+                mSubject.mYoutube_url.add(new YoutubeClass("Relations", "https://www.youtube.com/playlist?list=PLHz3_2lRlEzr9pmT_Qpk3eJGdUuSr6FON"));
+                mSubject.mYoutube_url.add(new YoutubeClass("Graph Theory", "https://www.youtube.com/playlist?list=PLmXKhU9FNesS7GpOddHDX3ZCl86_cwcIn"));
+                mSubject.mYoutube_url.add(new YoutubeClass("Whole Unit", "https://www.youtube.com/playlist?list=PLDDGPdw7e6Ag1EIznZ-m-qXu4XX3A0cIz"));
                 break;
             case "BCA 104":
                 mSubject.mSubjectName = "Principles of Management";
@@ -197,6 +207,7 @@ public class UtilityClass
                 mSubject.mAkash_url = "http://bit.ly/2GVfQHC";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "http://bit.ly/2WQVRk3";
+                mSubject.mYoutube_url.add(new YoutubeClass("POM", "https://www.youtube.com/playlist?list=PLeWDeRMAMaffBCwESfmFmo0grMpwO8z1J"));
                 break;
             case "BCA 106":
                 mSubject.mSubjectName = "Digital Electronics";
@@ -204,6 +215,7 @@ public class UtilityClass
                 mSubject.mAkash_url = "http://bit.ly/2Lmhpnw";
                 mSubject.mBook_url = "http://bit.ly/2tq221A";
                 mSubject.mPaper_analysis_url = "http://bit.ly/2M8wrNZ";
+                mSubject.mYoutube_url.add(new YoutubeClass("DE", "https://www.youtube.com/playlist?list=PLBlnK6fEyqRjMH3mWf6kwqiTbT798eAOm"));
                 break;
             case "BCA 108":
                 mSubject.mSubjectName = "Data Structure using C";
@@ -211,6 +223,7 @@ public class UtilityClass
                 mSubject.mAkash_url = "http://bit.ly/2PLg1cz";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "http://bit.ly/2Lw940y";
+                mSubject.mYoutube_url.add(new YoutubeClass("DS", "https://www.youtube.com/playlist?list=PLdo5W4Nhv31bbKJzrsKfMpo_grxuLl8LU"));
                 break;
             case "BCA 110":
                 mSubject.mSubjectName = "Database Management System";
@@ -218,6 +231,7 @@ public class UtilityClass
                 mSubject.mAkash_url = "http://bit.ly/2W3aa4R";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "http://bit.ly/2J4Nxdt";
+                mSubject.mYoutube_url.add(new YoutubeClass("DBMS", "https://www.youtube.com/playlist?list=PLdo5W4Nhv31b33kF46f9aFjoJPOkdlsRc"));
                 break;
 
             //Semester 3
@@ -231,6 +245,9 @@ public class UtilityClass
                 mSubject.mNotesList_url.add(new NotesClass("Unit 2: Correlation/Regression", "http://bit.ly/2lNFIhI"));
                 mSubject.mNotesList_url.add(new NotesClass("Unit 3 + 4", "http://bit.ly/2BDFCxW"));
                 mSubject.mNotesList_url.add(new NotesClass("Unit 1 & Unit 2 formulae", "http://bit.ly/2kJRXf9"));
+
+                mSubject.mYoutube_url.add(new YoutubeClass("Unit I and II", "https://www.youtube.com/playlist?list=PLkW3zC7NnNHYhpN0e7LJW9MMDKyIT_dpV"));
+                mSubject.mYoutube_url.add(new YoutubeClass("Unit III and IV", "https://www.youtube.com/playlist?list=PLabr9RWfBcnoLyXr4Y7MzmHSu3bDjLvhu"));
                 break;
             case "BCA 203":
                 mSubject.mSubjectName = "Computer Architecture";
@@ -243,6 +260,8 @@ public class UtilityClass
                 mSubject.mNotesList_url.add(new NotesClass("Unit 3", "http://bit.ly/32HIiXm"));
                 mSubject.mNotesList_url.add(new NotesClass("Unit 4", "http://bit.ly/2s23UjH"));
                 mSubject.mNotesList_url.add(new NotesClass("Notes by Mam", "http://bit.ly/2rkb9TK"));
+
+                mSubject.mYoutube_url.add(new YoutubeClass("CA", "https://www.youtube.com/playlist?list=PLftJ4X48yC1nRU3-6h0P30rWoT-hznf74"));
                 break;
             case "BCA 205":
                 mSubject.mSubjectName = "Front End Design Tool VB.Net";
@@ -253,6 +272,8 @@ public class UtilityClass
                 mSubject.mNotesList_url.add(new NotesClass("Unit 1 & 2", "http://bit.ly/2lHp8A9"));
                 mSubject.mNotesList_url.add(new NotesClass("Unit 3 & 4", "http://bit.ly/34OVt9v"));
 
+                mSubject.mYoutube_url.add(new YoutubeClass("VB NET 1", "https://www.youtube.com/playlist?list=PLS1QulWo1RIYLpgVN_CpXbkOQoYJTItzg"));
+                mSubject.mYoutube_url.add(new YoutubeClass("VB NET 2", "https://www.youtube.com/playlist?list=PL6n9fhu94yhX5dzHunAI2t4kE0kOuv4D7"));
                 break;
             case "BCA 207":
                 mSubject.mSubjectName = "Principles of Accounting";
@@ -263,6 +284,8 @@ public class UtilityClass
                 mSubject.mNotesList_url.add(new NotesClass("Unit 1 & 2", "http://bit.ly/2kuzhQF"));
                 mSubject.mNotesList_url.add(new NotesClass("Unit 2 & 3", "http://bit.ly/2JkyTx1"));
                 mSubject.mNotesList_url.add(new NotesClass("Unit 4", "http://bit.ly/33aeyBW"));
+
+                mSubject.mYoutube_url.add(new YoutubeClass("POA", "https://www.youtube.com/playlist?list=PLEJOTGLf455Dlox6VG_2ODwrG3jA0MJb5"));
                 break;
             case "BCA 209":
                 mSubject.mSubjectName = "Object Oriented Programming using C++.";
@@ -274,6 +297,8 @@ public class UtilityClass
                 mSubject.mNotesList_url.add(new NotesClass("Unit 2: Classes & Objects", "http://bit.ly/2ks7Sid"));
                 mSubject.mNotesList_url.add(new NotesClass("Unit 3: Inheritance & Polymorphism", "http://bit.ly/335gMlY"));
                 mSubject.mNotesList_url.add(new NotesClass("Unit 4: Generic Programming", "http://bit.ly/2rdmnJq"));
+
+                mSubject.mYoutube_url.add(new YoutubeClass("C++", "https://www.youtube.com/playlist?list=PLfVsf4Bjg79DLA5K3GLbIwf3baNVFO2Lq"));
                 break;
 
             //Semester 4
@@ -283,6 +308,10 @@ public class UtilityClass
                 mSubject.mAkash_url = "";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "";
+
+                mSubject.mYoutube_url.add(new YoutubeClass("Combinatorics/Discrete Math II", "https://www.youtube.com/playlist?list=PLl-gb0E4MII1_QX6h6TzMW3rF_7Taapyd"));
+                mSubject.mYoutube_url.add(new YoutubeClass("Probability Distributions", "https://www.youtube.com/playlist?list=PLaFfQroTgZnzbfK-Rie19FdV6diehETQy"));
+                mSubject.mYoutube_url.add(new YoutubeClass("Numerical Analysis", "https://www.youtube.com/playlist?list=PLU6SqdYcYsfLrTna7UuaVfGZYkNo0cpVC"));
                 break;
             case "BCA 204":
                 mSubject.mSubjectName = "Web Technologies";
@@ -294,6 +323,13 @@ public class UtilityClass
                 mSubject.mNotesList_url.add(new NotesClass("Unit 2 - CSS", "http://bit.ly/2I9YjfR"));
                 mSubject.mNotesList_url.add(new NotesClass("Unit 2 - JS", "http://bit.ly/2vnizIm"));
                 mSubject.mNotesList_url.add(new NotesClass("Notes by Mam", "http://bit.ly/2PG9alX"));
+
+                mSubject.mYoutube_url.add(new YoutubeClass("HTML Tutorials", "https://www.youtube.com/playlist?list=PL9OpiZLUnhZAfnqwbKuP_WdCsgaOC24qV"));
+                mSubject.mYoutube_url.add(new YoutubeClass("JavaScript Tutorial for Beginners", "https://www.youtube.com/playlist?list=PLsyeobzWxl7qtP8Lo9TReqUMkiOp446cV"));
+                mSubject.mYoutube_url.add(new YoutubeClass("CSS Tutorial for Beginners", "https://www.youtube.com/playlist?list=PLr6-GrHUlVf8JIgLcu3sHigvQjTw_aC9C"));
+                mSubject.mYoutube_url.add(new YoutubeClass("dHTML", "https://www.youtube.com/playlist?list=PLWWqE3Nx9YpvDDohYNl9HhU_pgh0YwnVk"));
+                mSubject.mYoutube_url.add(new YoutubeClass("WT 4 Unit 4", "https://www.youtube.com/playlist?list=PLkW3zC7NnNHa16dJjawlr6L_ckqUUs_ln"));
+                mSubject.mYoutube_url.add(new YoutubeClass("XML Tutorial", "https://www.youtube.com/playlist?list=PLfX2IHFUV0cEEIMZYXX6N6z4u691LvsiI"));
                 break;
             case "BCA 206":
                 mSubject.mSubjectName = "Java Programming";
@@ -301,6 +337,16 @@ public class UtilityClass
                 mSubject.mAkash_url = "";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "";
+
+                mSubject.mYoutube_url.add(new YoutubeClass("Java Tutorial For Beginners (Step by Step tutorial)", "https://www.youtube.com/playlist?list=PLS1QulWo1RIbfTjQvTdj8Y6yyq4R7g-Al"));
+                mSubject.mYoutube_url.add(new YoutubeClass("Exception Handling in Java", "https://www.youtube.com/playlist?list=PLsyeobzWxl7rS9B2K1l--VDpCn41gijnV"));
+                mSubject.mYoutube_url.add(new YoutubeClass("MultiThreading in Java with Lambda Expression", "https://www.youtube.com/playlist?list=PLsyeobzWxl7rmuFYRpkqLanwoG4pQQ7oW"));
+                mSubject.mYoutube_url.add(new YoutubeClass("Library Management System in Java(Netbeans) Complete Project (Step by Step )", "https://www.youtube.com/playlist?list=PL_Ke9hJMFeR_TWfBOug40-2uSANxa8dtE"));
+                mSubject.mYoutube_url.add(new YoutubeClass("Java Applet Programming (Hindi)", "https://www.youtube.com/playlist?list=PLbGui_ZYuhignGrO7DPr3kpZZ91yw4IEk"));
+                mSubject.mYoutube_url.add(new YoutubeClass("Java Swing GUI", "https://www.youtube.com/playlist?list=PLsyeobzWxl7pVZdyDXj0arOdTzo4MYekh"));
+                mSubject.mYoutube_url.add(new YoutubeClass("Network Fundamentals", "https://www.youtube.com/playlist?list=PLDQaRcbiSnqF5U8ffMgZzS7fq1rHUI3Q8"));
+                mSubject.mYoutube_url.add(new YoutubeClass("Java Database Connectivity (JDBC) by Navin Reddy", "https://www.youtube.com/playlist?list=PLsyeobzWxl7rU7Jz3zDRpqB-EODzBbHOI"));
+                mSubject.mYoutube_url.add(new YoutubeClass("Servlet and JSP Tutorial for Beginners 2018", "https://www.youtube.com/playlist?list=PLsyeobzWxl7pUPF2xjjJiG4BKC9x_GY46"));
                 break;
             case "BCA 208":
                 mSubject.mSubjectName = "Software Engineering";
@@ -308,6 +354,8 @@ public class UtilityClass
                 mSubject.mAkash_url = "";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "";
+
+                mSubject.mYoutube_url.add(new YoutubeClass("SE", "https://www.youtube.com/playlist?list=PL3oWeJK3GDfyHhD9JOBe-C3UO4o0OLFsk"));
                 break;
             case "BCA 210":
                 mSubject.mSubjectName = "Computer Networks";
@@ -317,6 +365,8 @@ public class UtilityClass
                 mSubject.mPaper_analysis_url = "";
                 mSubject.mNotesList_url.add(new NotesClass("Unit 1", "http://bit.ly/381S886"));
                 mSubject.mNotesList_url.add(new NotesClass("Unit 2", "http://bit.ly/2IicIGW"));
+
+                mSubject.mYoutube_url.add(new YoutubeClass("CN", "https://www.youtube.com/playlist?list=PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_"));
                 break;
 
             //Semester 5
@@ -326,6 +376,8 @@ public class UtilityClass
                 mSubject.mAkash_url = "";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "";
+
+                mSubject.mYoutube_url.add(new YoutubeClass("OS", "https://www.youtube.com/playlist?list=PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p"));
                 break;
             case "BCA 303":
                 mSubject.mSubjectName = "Computer Graphics";
@@ -333,6 +385,9 @@ public class UtilityClass
                 mSubject.mAkash_url = "";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "";
+
+                mSubject.mYoutube_url.add(new YoutubeClass("1. Computer Graphics (CG)", "https://www.youtube.com/playlist?list=PLrjkTql3jnm9cY0ijEyr2fPdwnH-0t8EY"));
+                mSubject.mYoutube_url.add(new YoutubeClass("2. Computer Graphics", "https://www.youtube.com/playlist?list=PLWPirh4EWFpHukXICQrDcmjZUa2WlLMAb"));
                 break;
             case "BCA 305":
                 mSubject.mSubjectName = "E- Commerce";
@@ -341,6 +396,16 @@ public class UtilityClass
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "";
 
+                mSubject.mYoutube_url.add(new YoutubeClass("1. E-Commerce Course", "https://www.youtube.com/playlist?list=PL3N0yGp9djBkGcJIn6fbGRThUSmCnz5Qx"));
+                mSubject.mYoutube_url.add(new YoutubeClass("2. E-Commerce and M-Commerce Lectures", "https://www.youtube.com/playlist?list=PLV8vIYTIdSnbh5dOzzOGYABSZLdguEbUG"));
+                mSubject.mYoutube_url.add(new YoutubeClass("3. Complete E-Commerce Course with Java and MySQL", "https://www.youtube.com/playlist?list=PL7saoWAQ-9B5T8HmKTl4fRNPaEhdqOmgf"));
+                mSubject.mYoutube_url.add(new YoutubeClass("4. E- Commerce Tutorial 2019", "https://www.youtube.com/playlist?list=PLbWX42QoZL5vhNjqqfyzLgbvUezv72ocC"));
+                mSubject.mYoutube_url.add(new YoutubeClass("5. ELECTRONIC PAYMENT SYSTEM", "https://www.youtube.com/playlist?list=PLb8zN-8LXfQAkHpezdSvGXFyxiRD5fRPE"));
+                mSubject.mYoutube_url.add(new YoutubeClass("6. E-commerce", "https://www.youtube.com/playlist?list=PLhf9MNcJXxbc8ZDS6qcX_pavRi9vxeCv4"));
+                mSubject.mYoutube_url.add(new YoutubeClass("7. Business Process Management Course", "https://www.youtube.com/playlist?list=PL2LDY1TRcen1SCPmL1BY_yA1DijztcmIh"));
+                mSubject.mYoutube_url.add(new YoutubeClass("8. Trends in Technology and E-Commerce in India: Legal and Tax Issues", "https://www.youtube.com/playlist?list=PLPhnxNKBMAoiKju0PQaOmzGo1uWVYnqxj"));
+                mSubject.mYoutube_url.add(new YoutubeClass("9. DIGITAL MARKETING - CAMPAIGNS CASE STUDIES", "https://www.youtube.com/playlist?list=PL6mNfaiUSHTdIGAMXsaMYCZEWmHeHhyKM"));
+
                 break;
             case "BCA 307":
                 mSubject.mSubjectName = "Software Testing";
@@ -348,6 +413,8 @@ public class UtilityClass
                 mSubject.mAkash_url = "";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "";
+
+                mSubject.mYoutube_url.add(new YoutubeClass("Software Testing Training Videos | Edureka", "https://www.youtube.com/playlist?list=PL9ooVrP1hQOHYamtWSSlt5jF52WvP0cHl"));
                 break;
             case "BCA 309":
                 mSubject.mSubjectName = "Microprocessor";
@@ -355,6 +422,9 @@ public class UtilityClass
                 mSubject.mAkash_url = "";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "";
+
+                mSubject.mYoutube_url.add(new YoutubeClass("1. Microprocessor 8085", "https://www.youtube.com/playlist?list=PLWPirh4EWFpFDi8bggPYOiMLlD1D_bBPM"));
+                mSubject.mYoutube_url.add(new YoutubeClass("2. MICROPROCESSOR GATE 2020 (EE/ECE/IN)", "https://www.youtube.com/playlist?list=PL1XaeVNXKsvylDOYoZzxiWPd5CNvc3RYQ"));
                 break;
             case "BCA 311":
                 mSubject.mSubjectName = "Advance Computer Networks";
@@ -362,6 +432,12 @@ public class UtilityClass
                 mSubject.mAkash_url = "";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "";
+
+                mSubject.mYoutube_url.add(new YoutubeClass("1. ADVANCED COMPUTER NETWORK", "https://www.youtube.com/playlist?list=PLG9aCp4uE-s3Mmbn4q5J87OriIN3CuFDS"));
+                mSubject.mYoutube_url.add(new YoutubeClass("2. Advanced Computer Networks", "https://www.youtube.com/playlist?list=PL3EA3BED31F20DE92"));
+                mSubject.mYoutube_url.add(new YoutubeClass("3. Full Series | 200-301 CCNA | Networking Inc.", "https://www.youtube.com/playlist?list=PLh94XVT4dq02frQRRZBHzvj2hwuhzSByN"));
+                mSubject.mYoutube_url.add(new YoutubeClass("4. NETWORK SECURITY / INFORMATION SECURITY", "https://www.youtube.com/playlist?list=PLLOxZwkBK52Ch0y2lLtfepy4Lt_SVkwo3"));
+                mSubject.mYoutube_url.add(new YoutubeClass("5. Cryptography and network security", "https://www.youtube.com/playlist?list=PL9FuOtXibFjV77w2eyil4Xzp8eooqsPp8"));
                 break;
             case "BCA 313":
                 mSubject.mSubjectName = "Web Based Programming";
@@ -376,6 +452,9 @@ public class UtilityClass
                 mSubject.mAkash_url = "";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "";
+
+                mSubject.mYoutube_url.add(new YoutubeClass("1. UGC - Bcom, bba, ba, bca, honours ( Business economics)", "https://www.youtube.com/playlist?list=PLgC10_Xv-BGirAqOr-hU8e-N_Nz0UpgJ-"));
+                mSubject.mYoutube_url.add(new YoutubeClass("2. CA Foundation - Business Economics", "https://www.youtube.com/playlist?list=PLBiVUADzZpd_hh5lFerym1qSQ9TQfNYuW"));
                 break;
 
             //Semester 6
@@ -385,6 +464,11 @@ public class UtilityClass
                 mSubject.mAkash_url = "";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "";
+
+                mSubject.mYoutube_url.add(new YoutubeClass("1. Data Warehousing and Data Mining in Hindi", "https://www.youtube.com/playlist?list=PL-JvKqQx2AteuF5RnKVD0ZuW1_Tuk8H60"));
+                mSubject.mYoutube_url.add(new YoutubeClass("2. Datawarehouse and Data Mining Lectures in Hindi", "https://www.youtube.com/playlist?list=PLV8vIYTIdSnb4H0JvSTt3PyCNFGGlO78u"));
+                mSubject.mYoutube_url.add(new YoutubeClass("3. Data Mining and Warehouse", "https://www.youtube.com/playlist?list=PLYwpaL_SFmcChP0xiW3KK9elNuhfCLVVi"));
+                mSubject.mYoutube_url.add(new YoutubeClass("4. Data warehouse and data mining", "https://www.youtube.com/playlist?list=PL0s3O6GgLL5fuVR545mzIuCkgGLi02fkN"));
                 break;
             case "BCA 304":
                 mSubject.mSubjectName = "Mobile Computing";
@@ -392,6 +476,10 @@ public class UtilityClass
                 mSubject.mAkash_url = "";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "";
+
+                mSubject.mYoutube_url.add(new YoutubeClass("1. Mobile Computing (MC)", "https://www.youtube.com/playlist?list=PLrjkTql3jnm-kLRBgIt8kvuwbTScoI2IJ"));
+                mSubject.mYoutube_url.add(new YoutubeClass("2. Mobile Communication", "https://www.youtube.com/playlist?list=PLYwpaL_SFmcAjqrKO-b9UMa2AaAlzZY7D"));
+                mSubject.mYoutube_url.add(new YoutubeClass("3. Mobile Computing IPU", "https://www.youtube.com/playlist?list=PLPEhGb71u9EhlpzSedPmCBIocOTflCD5A"));
                 break;
             case "BCA 306":
                 mSubject.mSubjectName = "Linux Environment";

@@ -3,6 +3,7 @@ package com.example.msinotes.ui.ytpage;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import android.view.KeyEvent;
@@ -11,10 +12,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 
 import com.example.msinotes.Models.UtilityClass;
+import com.example.msinotes.NotesClass;
 import com.example.msinotes.R;
+import com.example.msinotes.ui.SubjectInfo.NotesOptionsAdaptor;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.regex.Matcher;
@@ -120,4 +125,6 @@ public class YoutubeFragment extends Fragment
 
         return view;
     }
+
+
 }

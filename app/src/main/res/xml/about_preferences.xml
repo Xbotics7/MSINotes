@@ -30,6 +30,6 @@
         <Preference android:title="@string/talha_name"/>
         <Preference android:title="@string/upmanyu_name"/>
     </PreferenceCategory>
-    <PreferenceCategory android:title="Fuck Noteslelo" />
+    <PreferenceCategory android:title="Frick Noteslelo. haha. jk. " />
 
 </PreferenceScreen>

@@ -3,112 +3,112 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="?attr/colorHomeBg"
-    >
+    android:orientation="vertical">
 
-   <TextView
-       android:layout_width="match_parent"
-       android:gravity="end"
-       android:layout_marginTop="15dp"
-       android:layout_marginEnd="16dp"
-       android:id="@+id/textview_subject_code"
-       android:fontFamily="sans-serif-light"
-       android:layout_height="wrap_content"
-       android:textColor="?attr/colorText"/>
+    <TextView
+        android:id="@+id/textview_subject_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="sans-serif-light"
+        android:gravity="end"
+        android:textColor="?attr/colorText" />
+
     <ScrollView
         android:layout_width="match_parent"
 
         android:layout_height="match_parent"
         android:paddingBottom="10dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp"
-        android:paddingBottom="20dp"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/btnNotes"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="125dp"
-            android:background="@drawable/rounded_info_button"
-            android:drawableStart="@drawable/ic_baseline_notes_90"
-            android:gravity="center_vertical"
-            android:layout_marginTop="10dp"
-            android:paddingStart="30dp"
-            android:drawablePadding="20dp"
-            android:text="Notes"
-            android:textAllCaps="false"
-            android:textColor="#fff"
-            android:textSize="30sp" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="16dp"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+
+            <Button
+                android:id="@+id/btnNotes"
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_info_button"
+                android:drawableStart="@drawable/ic_baseline_notes_90"
+                android:drawablePadding="20dp"
+                android:gravity="center_vertical"
+                android:paddingStart="30dp"
+                android:text="Notes"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="30sp" />
 
 
-        <Button
-            android:id="@+id/btnAkash"
-            android:layout_width="match_parent"
-            android:layout_height="125dp"
-            android:background="@drawable/custom_akash_shape"
-            android:drawableStart="@drawable/ic_baseline_menu_book_70"
-            android:gravity="center_vertical"
-            android:layout_marginTop="20dp"
-            android:paddingStart="30dp"
-            android:drawablePadding="20dp"
-            android:text="Akash"
-            android:textAllCaps="false"
-            android:textColor="#fff"
-            android:textSize="30sp" />
+            <Button
+                android:id="@+id/btnAkash"
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/custom_akash_shape"
+                android:drawableStart="@drawable/ic_baseline_menu_book_70"
+                android:drawablePadding="20dp"
+                android:gravity="center_vertical"
+                android:paddingStart="30dp"
+                android:text="Akash"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="30sp" />
 
-        <Button
-            android:id="@+id/btnBook"
-            android:layout_width="match_parent"
-            android:layout_height="125dp"
-            android:background="@drawable/custom_books_shape"
-            android:drawableStart="@drawable/ic_baseline_book_24"
-            android:gravity="center_vertical"
-            android:layout_marginTop="20dp"
-            android:paddingStart="30dp"
-            android:drawablePadding="20dp"
-            android:text="Book"
-            android:textAllCaps="false"
-            android:textColor="#fff"
-            android:textSize="30sp" />
+            <Button
+                android:id="@+id/btnBook"
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/custom_books_shape"
+                android:drawableStart="@drawable/ic_baseline_book_24"
+                android:drawablePadding="20dp"
+                android:gravity="center_vertical"
+                android:paddingStart="30dp"
+                android:text="Book"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="30sp" />
 
-        <Button
-            android:id="@+id/btnVideos"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:background="@drawable/custom_vids_shape"
-            android:drawableStart="@drawable/ic_baseline_ondemand_video_24"
-            android:gravity="center_vertical"
-            android:layout_marginTop="20dp"
-            android:paddingStart="30dp"
-            android:drawablePadding="20dp"
-            android:text="Videos"
-            android:textAllCaps="false"
-            android:textColor="#fff"
-            android:textSize="30sp" />
+            <Button
+                android:id="@+id/btnVideos"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/custom_vids_shape"
+                android:drawableStart="@drawable/ic_baseline_ondemand_video_24"
+                android:drawablePadding="20dp"
+                android:gravity="center_vertical"
+                android:paddingStart="30dp"
+                android:text="Videos"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="30sp" />
 
 
-        <Button
-            android:id="@+id/btnPprAnalysis"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:background="@drawable/custom_ppr_analysis_shape"
-            android:drawableStart="@drawable/ic_baseline_find_in_page_24"
-            android:gravity="center_vertical"
-            android:layout_marginTop="20dp"
-            android:paddingStart="30dp"
-            android:drawablePadding="20dp"
-            android:text="Paper Analysis"
-            android:textAllCaps="false"
-            android:textColor="#fff"
-            android:textSize="30sp" />
+            <Button
+                android:id="@+id/btnPprAnalysis"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/custom_ppr_analysis_shape"
+                android:drawableStart="@drawable/ic_baseline_find_in_page_24"
+                android:drawablePadding="20dp"
+                android:gravity="center_vertical"
+                android:paddingStart="30dp"
+                android:text="Paper Analysis"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="30sp" />
 
-    </LinearLayout>
+        </LinearLayout>
 
     </ScrollView>
 </LinearLayout>
