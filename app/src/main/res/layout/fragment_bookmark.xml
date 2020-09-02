@@ -6,12 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".ui.bookmark.BookmarkFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Not ready yet!"
-        android:textColor="?attr/colorText"
-        android:textAlignment="center"
-        android:textSize="50sp"/>
+   <ListView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:id="@+id/notesBookMarkList"/>
+
+
 </RelativeLayout>

@@ -1,23 +1,32 @@
 package com.example.msinotes.ui.SubjectInfo;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.preference.PreferenceManager;
 
+import com.example.msinotes.Models.UtilityClass;
 import com.example.msinotes.NotesClass;
 import com.example.msinotes.R;
 import com.example.msinotes.SubjectsClass;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class NotesOptionsAdaptor extends ArrayAdapter<NotesClass>
 {
+
     public NotesOptionsAdaptor(Context context, ArrayList<NotesClass> notesList)
     {
         super(context, R.layout.options_row, notesList);
@@ -48,10 +57,38 @@ public class NotesOptionsAdaptor extends ArrayAdapter<NotesClass>
         return initView(position, convertView, parent);
     }
 
+    private void savedata(NotesClass subNotes, ImageButton btnBookMark, ImageButton btnUnBookMark){
+            Gson gson = new Gson();
+            SharedPreferences sharedPrefBookMark = PreferenceManager.getDefaultSharedPreferences(getContext());
+            SharedPreferences.Editor editor = sharedPrefBookMark.edit();
+            ArrayList<NotesClass> notesList = new ArrayList<>();
+              String json = sharedPrefBookMark.getString("BookMark List","");
+            Type type =  new TypeToken<ArrayList<NotesClass>>() {}.getType();
+            notesList = gson.fromJson(json,type);
+            if(notesList == null){
+            notesList = new ArrayList<>();
+            }
+
+            notesList.add(subNotes);
+
+
+            String json2 = gson.toJson(notesList);
+            editor.putString("BookMark List", json2);
+            editor.apply();
+
+            btnBookMark.setVisibility(View.GONE);
+            btnUnBookMark.setVisibility(View.VISIBLE);
+
+    }
+ private void UnBookMark(ImageButton btnBookMark, ImageButton btnUnBookMark){
+        btnBookMark.setVisibility(View.VISIBLE);
+        btnUnBookMark.setVisibility(View.GONE);
+
+ }
 
     private View initView(int position, @Nullable View convertView, @NonNull ViewGroup parent)
     {
-        NotesClass currentItem = getItem(position);
+        final NotesClass currentItem = getItem(position);
 
         if (convertView == null)
         {
@@ -66,6 +103,23 @@ public class NotesOptionsAdaptor extends ArrayAdapter<NotesClass>
             textView.setText(currentItem.mName);
         }
 
+        final ImageButton btnBookMark = (ImageButton) convertView.findViewById(R.id.btnBookMark);
+        final ImageButton btnUnBookMark = (ImageButton) convertView.findViewById(R.id.btnUnBookMark);
+        btnBookMark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                savedata(currentItem, btnBookMark,btnUnBookMark);
+            }
+        });
+
+        btnUnBookMark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UnBookMark(btnBookMark, btnUnBookMark);
+            }
+        });
         return convertView;
     }
+
+
 }
