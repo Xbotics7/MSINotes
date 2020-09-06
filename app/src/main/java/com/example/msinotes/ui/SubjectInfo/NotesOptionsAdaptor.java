@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 public class NotesOptionsAdaptor extends ArrayAdapter<NotesClass>
 {
-
+    ArrayList<NotesClass> notesList;
     public NotesOptionsAdaptor(Context context, ArrayList<NotesClass> notesList)
     {
         super(context, R.layout.options_row, notesList);
@@ -65,12 +65,12 @@ public class NotesOptionsAdaptor extends ArrayAdapter<NotesClass>
               String json = sharedPrefBookMark.getString("BookMark List","");
             Type type =  new TypeToken<ArrayList<NotesClass>>() {}.getType();
             notesList = gson.fromJson(json,type);
+
             if(notesList == null){
             notesList = new ArrayList<>();
             }
 
             notesList.add(subNotes);
-
 
             String json2 = gson.toJson(notesList);
             editor.putString("BookMark List", json2);
@@ -80,14 +80,25 @@ public class NotesOptionsAdaptor extends ArrayAdapter<NotesClass>
             btnUnBookMark.setVisibility(View.VISIBLE);
 
     }
- private void UnBookMark(ImageButton btnBookMark, ImageButton btnUnBookMark){
-        btnBookMark.setVisibility(View.VISIBLE);
+
+
+ private void UnBookMark(NotesClass subNotes,ImageButton btnBookMark, ImageButton btnUnBookMark){
+     SharedPreferences sharedPrefBookMark = PreferenceManager.getDefaultSharedPreferences(getContext());
+     SharedPreferences.Editor editor = sharedPrefBookMark.edit();
+    editor.remove();
+    editor.commit();
+
+     btnBookMark.setVisibility(View.VISIBLE);
         btnUnBookMark.setVisibility(View.GONE);
+
 
  }
 
     private View initView(int position, @Nullable View convertView, @NonNull ViewGroup parent)
     {
+
+        loaddata();
+
         final NotesClass currentItem = getItem(position);
 
         if (convertView == null)
@@ -97,29 +108,60 @@ public class NotesOptionsAdaptor extends ArrayAdapter<NotesClass>
 
         TextView textView = convertView.findViewById(R.id.sub_Name);
 
+        final ImageButton btnBookMark = (ImageButton) convertView.findViewById(R.id.btnBookMark);
+        btnBookMark.setVisibility(View.VISIBLE);
+        final ImageButton btnUnBookMark = (ImageButton) convertView.findViewById(R.id.btnUnBookMark);
+        final ImageButton btnMoreInfo = (ImageButton) convertView.findViewById(R.id.btnMoreInfo);
+        btnMoreInfo.setVisibility(View.GONE);
+
         if (currentItem != null)
         {
             textView.setBackgroundResource(R.drawable.custom_listview_item);
             textView.setText(currentItem.mName);
+            if(notesList.contains(currentItem)){
+                btnUnBookMark.setVisibility(View.VISIBLE);
+                btnBookMark.setVisibility(View.GONE);
+            }
+            else{
+                btnBookMark.setVisibility(View.VISIBLE);
+                btnUnBookMark.setVisibility(View.GONE);
+            }
         }
 
-        final ImageButton btnBookMark = (ImageButton) convertView.findViewById(R.id.btnBookMark);
-        final ImageButton btnUnBookMark = (ImageButton) convertView.findViewById(R.id.btnUnBookMark);
+
+
         btnBookMark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 savedata(currentItem, btnBookMark,btnUnBookMark);
+
             }
         });
 
         btnUnBookMark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UnBookMark(btnBookMark, btnUnBookMark);
+                UnBookMark(currentItem, btnBookMark, btnUnBookMark);
             }
         });
+
+
         return convertView;
     }
 
+    private void loaddata( ){
+
+        if(notesList == null){
+            notesList = new ArrayList<>();
+        }
+
+        Gson gson = new Gson();
+        SharedPreferences sharedPrefBookMark = PreferenceManager.getDefaultSharedPreferences(getContext());
+        String json = sharedPrefBookMark.getString("BookMark List",null);
+        Type type =  new TypeToken<ArrayList<NotesClass>>() {}.getType();
+        notesList = gson.fromJson(json,type);
+
+
+    }
 
 }
