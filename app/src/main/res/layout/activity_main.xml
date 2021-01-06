@@ -8,11 +8,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
    >
-
+    <include layout="@layout/toolbar_bar" android:id="@+id/toolbar" />
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/frame_container"
+        android:layout_below="@id/toolbar"
         android:layout_above="@id/nav_view"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

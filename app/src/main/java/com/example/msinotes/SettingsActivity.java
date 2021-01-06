@@ -12,12 +12,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.ListPreference;
@@ -59,11 +61,17 @@ public class SettingsActivity extends AppCompatActivity implements
                         }
                     }
                 });
+
+        Toolbar toolbar = (Toolbar)findViewById(R.id.layout_toolbar_settings);
+        setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null)
         {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+
+        TextView toolbar_text = toolbar.findViewById(R.id.toolbar_title);
+        toolbar_text.setText(R.string.title_activity_settings);
     }
 
     @Override
@@ -81,6 +89,9 @@ public class SettingsActivity extends AppCompatActivity implements
     @Override
     public void onBackPressed()
     {
+        Toolbar toolbar = (Toolbar)findViewById(R.id.layout_toolbar_settings);
+        TextView toolbar_text = toolbar.findViewById(R.id.toolbar_title);
+        toolbar_text.setText(R.string.title_activity_settings);
         if (getSupportActionBar().getTitle().toString().equals("Settings"))
         {
             Intent intent = new Intent(this, MainActivity.class);
@@ -125,6 +136,9 @@ public class SettingsActivity extends AppCompatActivity implements
                 .addToBackStack(null)
                 .commit();
         setTitle(pref.getTitle());
+        Toolbar toolbar = (Toolbar)findViewById(R.id.layout_toolbar_settings);
+        TextView toolbar_text = toolbar.findViewById(R.id.toolbar_title);
+        toolbar_text.setText(pref.getTitle());
         return true;
     }
 

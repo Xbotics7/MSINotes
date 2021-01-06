@@ -19,11 +19,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:lineSpacingMultiplier="1.5"
-        android:text="Version 1.1.0\n
-• 'New' Videos for respective subjects are now finally available to watch.\n
-• ''New'' Added Option to check syllabus.\n
-• ''New'' Added Changelog UI.\n
-• Re-designed Subject Info Page.\n
+        android:text="Version 1.2.1\n
+• Fixed wrong notes showing in ICIT Subjects\n
+• 'New' Added Technical Communication Notes.\n
+• 'New' Added Mathematics II Notes.\n
+• 'New' Added Principles of Management Notes.\n
+• ''New'' Added Database Management Notes.\n
+• ''New'' Added Data Structures using C.\n
 • Bugs Fixes and Performance Improvements.\n
 
 \n Let us know what you want to see next in Nomtes. We are listening!

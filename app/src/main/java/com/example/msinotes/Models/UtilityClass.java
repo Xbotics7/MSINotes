@@ -2,26 +2,195 @@ package com.example.msinotes.Models;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.preference.PreferenceManager;
 
 import com.example.msinotes.NotesClass;
+import com.example.msinotes.R;
 import com.example.msinotes.SubjectsClass;
 import com.example.msinotes.YoutubeClass;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class UtilityClass
 {
+    public static boolean isBookmark = false;
+
     public static void showToast(String message, Context context)
     {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+    }
+
+    public static ArrayList<NotesClass> getNotesBookMarks(Context context)
+    {
+        ArrayList<NotesClass> savedNotesList = new ArrayList<>();
+        Gson gson = new Gson();
+
+        SharedPreferences sharedPrefBookMark = PreferenceManager.getDefaultSharedPreferences(context);
+
+        String json = sharedPrefBookMark.getString("BookMark List", "");
+        Type type = new TypeToken<ArrayList<NotesClass>>()
+        {
+        }.getType();
+
+        savedNotesList = gson.fromJson(json, type);
+
+        if (savedNotesList == null)
+        {
+            savedNotesList = new ArrayList<>();
+        }
+        return savedNotesList;
+    }
+
+
+    public static void saveToBookmark(NotesClass subNotes, ImageButton btnBookMark, ImageButton btnUnBookMark, Context context)
+    {
+        Gson gson = new Gson();
+
+        SharedPreferences sharedPrefBookMark = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPrefBookMark.edit();
+
+        ArrayList<NotesClass> notesList = new ArrayList<>();
+
+        String json = sharedPrefBookMark.getString("BookMark List", "");
+        Type type = new TypeToken<ArrayList<NotesClass>>()
+        {
+        }.getType();
+
+        notesList = gson.fromJson(json, type);
+
+        if (notesList == null)
+        {
+            notesList = new ArrayList<>();
+        }
+
+        notesList.add(subNotes);
+
+        String json2 = gson.toJson(notesList);
+
+        editor.putString("BookMark List", json2);
+        editor.apply();
+
+        btnBookMark.setVisibility(View.GONE);
+        btnUnBookMark.setVisibility(View.VISIBLE);
+
+        UtilityClass.showToast("Bookmarked", context);
+
+    }
+
+    public static void removeFromBookMark(NotesClass currentNotesItem, ImageButton btnBookMark, ImageButton btnUnBookMark, Context context)
+    {
+        Gson gson = new Gson();
+        ArrayList<NotesClass> savedNotesList = UtilityClass.getNotesBookMarks(context);
+
+        SharedPreferences sharedPrefBookMark = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPrefBookMark.edit();
+
+        savedNotesList.remove(currentNotesItem);
+        String json2 = gson.toJson(savedNotesList);
+
+        editor.putString("BookMark List", json2);
+        editor.apply();
+
+        btnBookMark.setVisibility(View.VISIBLE);
+        btnUnBookMark.setVisibility(View.GONE);
+
+
+        UtilityClass.showToast("UnBookmarked", context);
+    }
+
+    public static ArrayList<YoutubeClass> getYTBookMarks(Context context)
+    {
+        ArrayList<YoutubeClass> savedYTList = new ArrayList<>();
+        Gson gson = new Gson();
+
+        SharedPreferences sharedPrefBookMark = PreferenceManager.getDefaultSharedPreferences(context);
+//        SharedPreferences.Editor editor = sharedPrefBookMark.edit();
+//        editor.putString("YT BookMark List", "");
+//        editor.apply();
+        String json = sharedPrefBookMark.getString("YT BookMark List", "");
+        Type type = new TypeToken<ArrayList<YoutubeClass>>()
+        {
+        }.getType();
+
+        savedYTList = gson.fromJson(json, type);
+
+        if (savedYTList == null)
+        {
+            savedYTList = new ArrayList<>();
+        }
+        return savedYTList;
+    }
+
+    public static void saveToYTBookmark(YoutubeClass ytNotes, ImageButton btnBookMark, ImageButton btnUnBookMark, Context context)
+    {
+        Gson gson = new Gson();
+
+        SharedPreferences sharedPrefBookMark = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPrefBookMark.edit();
+
+        ArrayList<YoutubeClass> ytList = new ArrayList<>();
+
+        String json = sharedPrefBookMark.getString("YT BookMark List", "");
+        Type type = new TypeToken<ArrayList<YoutubeClass>>()
+        {
+        }.getType();
+
+        ytList = gson.fromJson(json, type);
+
+        if (ytList == null)
+        {
+            ytList = new ArrayList<>();
+        }
+
+        ytList.add(ytNotes);
+
+        String json2 = gson.toJson(ytList);
+
+        editor.putString("YT BookMark List", json2);
+        editor.apply();
+
+        btnBookMark.setVisibility(View.GONE);
+        btnUnBookMark.setVisibility(View.VISIBLE);
+
+        UtilityClass.showToast("Bookmarked", context);
+
+    }
+
+    public static void removeFromYTBookMark(YoutubeClass currentYTItem, ImageButton btnBookMark, ImageButton btnUnBookMark, Context context)
+    {
+        Gson gson = new Gson();
+        ArrayList<YoutubeClass> savedYTList = UtilityClass.getYTBookMarks(context);
+
+        SharedPreferences sharedPrefBookMark = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPrefBookMark.edit();
+
+        savedYTList.remove(currentYTItem);
+        String json2 = gson.toJson(savedYTList);
+
+        editor.putString("YT BookMark List", json2);
+        editor.apply();
+
+        btnBookMark.setVisibility(View.VISIBLE);
+        btnUnBookMark.setVisibility(View.GONE);
+
+
+        UtilityClass.showToast("UnBookmarked", context);
     }
 
     public static void getSubjectsList(ArrayList<SubjectsClass> mSubject)
@@ -35,12 +204,13 @@ public class UtilityClass
         getSubjectsList(mSubject, "semester 6", null);
     }
 
-    public static void getSubjectsList(ArrayList<SubjectsClass> mSubject, String sem, ActionBar actionBar)
+    public static void getSubjectsList(ArrayList<SubjectsClass> mSubject, String sem, Toolbar actionBar)
     {
         //Returns Subjects list according to sem
         if (actionBar != null)
         {
-            actionBar.setTitle(sem.toUpperCase());
+            TextView toolbar_text = actionBar.findViewById(R.id.toolbar_title);
+            toolbar_text.setText(sem.toUpperCase());
         }
         switch (sem)
         {
@@ -175,10 +345,12 @@ public class UtilityClass
                 break;
             case "BCA 107":
                 mSubject.mSubjectName = "Introduction to Computers & IT";
-                mSubject.mNotes_url = "http://bit.ly/2KSc8BF";
+                mSubject.mNotes_url = "";
                 mSubject.mAkash_url = "http://bit.ly/36jH8DA";
                 mSubject.mBook_url = "";
                 mSubject.mPaper_analysis_url = "http://bit.ly/2KDmC7P";
+                mSubject.mNotesList_url.add(new NotesClass("Unit 1 & 3", "http://bit.ly/2Ktv5to"));
+                mSubject.mNotesList_url.add(new NotesClass("Unit 2 & 4", "http://bit.ly/2yC7mBC"));
                 mSubject.mYoutube_url.add(new YoutubeClass("Computer Fundamentals", "https://www.youtube.com/playlist?list=PLWPirh4EWFpF_2T13UeEgZWZHc8nHBuXp"));
                 break;
             case "BCA 109":
@@ -532,22 +704,22 @@ public class UtilityClass
         String url = "";
         switch (BCACode)
         {
-            case "sem 1":
+            case "semester 1":
                 url = "https://drive.google.com/file/d/1NHEBDX6abXhIr_LQ9_7bxFPUZaANIRQV/view";
                 break;
-            case "sem 2":
+            case "semester 2":
                 url = "https://drive.google.com/file/d/1z_806K8prZ1XkiHzHJDN1h78YwIflwHt/view";
                 break;
-            case "sem 3":
+            case "semester 3":
                 url = "https://drive.google.com/file/d/18Ztc2JiHaPN08dQOLFaCEjebiKSLEorw/view";
                 break;
-            case "sem 4":
+            case "semester 4":
                 url = "https://drive.google.com/file/d/13z2ldJHVl6OgvuBfNmJ4qEUcJaYVuLzF/view";
                 break;
-            case "sem 5":
+            case "semester 5":
                 url = "https://drive.google.com/file/d/1eTM8sC2TeZkhZbpgdGfqUtVokICH3yeA/view";
                 break;
-            case "sem 6":
+            case "semester 6":
                 url = "https://drive.google.com/file/d/1ncmOwCpqmfWrRL2UTg_C5gN7cWB2HJOv/view";
                 break;
         }
@@ -571,12 +743,6 @@ public class UtilityClass
         settings.setBuiltInZoomControls(true);
 
         settings.setDisplayZoomControls(false);
-
-        // Enable remote debugging via chrome://inspect
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
-        {
-            WebView.setWebContentsDebuggingEnabled(true);
-        }
 
     }
 
@@ -608,8 +774,9 @@ public class UtilityClass
         return _html;
     }
 
-    public static String getCSS(){
-        String css= ".mobile-topbar-header, ytm-pivot-bar-renderer, .compact-media-item-menu, .playlist-header-actions {display: none;} " +
+    public static String getCSS()
+    {
+        String css = ".mobile-topbar-header, ytm-pivot-bar-renderer, .compact-media-item-menu, .playlist-header-actions {display: none;} " +
                 "ytm-app.sticky-player {padding-top: 0;}";
         return css;
     }

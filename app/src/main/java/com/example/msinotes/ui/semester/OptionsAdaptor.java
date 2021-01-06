@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.msinotes.MainActivity;
+import com.example.msinotes.Models.FirebaseHelper;
 import com.example.msinotes.Models.UtilityClass;
 import com.example.msinotes.NotesClass;
 import com.example.msinotes.R;
@@ -98,13 +99,13 @@ public class OptionsAdaptor extends ArrayAdapter<SubjectsClass>
             @Override
             public void onClick(View v)
             {
-                SubjectsClass subInfo = UtilityClass.getSubInfo(textViewSC.getText().toString());
+                SubjectsClass subInfo = FirebaseHelper.getSubInfo(textViewSC.getText().toString());
                 if (subInfo.mNotes_url.equals("") && subInfo.mNotesList_url.size() <= 0)
                     UtilityClass.showToast("Not Available right now", getContext());
                 else if (subInfo.mNotes_url.equals(""))
                     customNotesPopup(subInfo, finalConvertView);
                 else
-                    subButtonClick(subInfo.mNotes_url, finalConvertView);
+                    subButtonClick(subInfo.mNotes_url, finalConvertView, subInfo.mSubjectName, "Notes");
             }
         });
         btnBook.setOnClickListener(new View.OnClickListener()
@@ -112,11 +113,11 @@ public class OptionsAdaptor extends ArrayAdapter<SubjectsClass>
             @Override
             public void onClick(View v)
             {
-                SubjectsClass subInfo = UtilityClass.getSubInfo(textViewSC.getText().toString());
+                SubjectsClass subInfo = FirebaseHelper.getSubInfo(textViewSC.getText().toString());
                 if (subInfo.mBook_url.equals(""))
                     UtilityClass.showToast("Not Available right now", getContext());
                 else
-                    subButtonClick(subInfo.mBook_url, finalConvertView);
+                    subButtonClick(subInfo.mBook_url, finalConvertView, subInfo.mSubjectName, "Books");
             }
         });
         btnAkash.setOnClickListener(new View.OnClickListener()
@@ -125,11 +126,11 @@ public class OptionsAdaptor extends ArrayAdapter<SubjectsClass>
             public void onClick(View v)
             {
 
-                SubjectsClass subInfo = UtilityClass.getSubInfo(textViewSC.getText().toString());
+                SubjectsClass subInfo = FirebaseHelper.getSubInfo(textViewSC.getText().toString());
                 if (subInfo.mAkash_url.equals(""))
                     UtilityClass.showToast("Not Available right now", getContext());
                 else
-                    subButtonClick(subInfo.mAkash_url, finalConvertView);
+                    subButtonClick(subInfo.mAkash_url, finalConvertView, subInfo.mSubjectName, "Akash");
             }
         });
         btnVids.setOnClickListener(new View.OnClickListener()
@@ -138,12 +139,13 @@ public class OptionsAdaptor extends ArrayAdapter<SubjectsClass>
             public void onClick(View v)
             {
 
-                SubjectsClass subInfo = UtilityClass.getSubInfo(textViewSC.getText().toString());
+                SubjectsClass subInfo = FirebaseHelper.getSubInfo(textViewSC.getText().toString());
                 if (subInfo.mYoutube_url.size() > 0)
                 {
                     if (subInfo.mYoutube_url.size() == 1)
                     {
-                        ytButtonClick(subInfo.mYoutube_url.get(0).yt_playlist_url, finalConvertView);
+                        YoutubeClass _ytObj = subInfo.mYoutube_url.get(0);
+                        ytButtonClick(_ytObj.yt_playlist_url, finalConvertView, _ytObj.yt_name);
                     } else
                     {
                         customYTPopup(subInfo, finalConvertView);
@@ -183,7 +185,8 @@ public class OptionsAdaptor extends ArrayAdapter<SubjectsClass>
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
-                subButtonClick(((NotesClass) subInfo.mNotesList_url.get(position)).mNotes_url, view);
+                NotesClass _notesClass = (NotesClass) subInfo.mNotesList_url.get(position);
+                subButtonClick(_notesClass.mNotes_url, view, _notesClass.mName, "Notes");
                 dialog.hide();
             }
         });
@@ -207,19 +210,22 @@ public class OptionsAdaptor extends ArrayAdapter<SubjectsClass>
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
-                ytButtonClick(((YoutubeClass) subInfo.mYoutube_url.get(position)).yt_playlist_url, view);
+                YoutubeClass _ytObj = subInfo.mYoutube_url.get(position);
+                ytButtonClick(_ytObj.yt_playlist_url, view, _ytObj.yt_name);
                 dialog.hide();
             }
         });
     }
 
-    private void subButtonClick(String url, View view)
+    private void subButtonClick(String url, View view, String Title, String Header)
     {
         AppCompatActivity activity = (AppCompatActivity) view.getContext();
         WebrowserFragment frag = new WebrowserFragment();
 
         // Custom Values to pass as argument when switching to another fragment
         Bundle args = new Bundle();
+        args.putString("Header", Header);
+        args.putString("Title", Title + " (" + Header + ")");
         args.putString("URL", url);
         frag.setArguments(args);
 
@@ -232,13 +238,15 @@ public class OptionsAdaptor extends ArrayAdapter<SubjectsClass>
         fragTrans.commit();
     }
 
-    private void ytButtonClick(String url, View view)
+    private void ytButtonClick(String url, View view, String Title)
     {
         AppCompatActivity activity = (AppCompatActivity) view.getContext();
         YoutubeFragment frag = new YoutubeFragment();
 
         // Custom Values to pass as argument when switching to another fragment
         Bundle args = new Bundle();
+        args.putString("Header", "Video");
+        args.putString("Title", Title + " Video ");
         args.putString("URL", url);
         frag.setArguments(args);
 

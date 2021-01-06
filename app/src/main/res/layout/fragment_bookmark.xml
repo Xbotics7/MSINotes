@@ -4,12 +4,87 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20dp"
     tools:context=".ui.bookmark.BookmarkFragment">
 
-   <ListView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:id="@+id/notesBookMarkList"/>
 
+    <LinearLayout
+        android:id="@+id/linear_noBookmark"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_baseline_bookmarks_md"
+            android:drawablePadding="10dp"
+            android:text="No Bookmark found"
+            android:textColor="?attr/colorText"
+            android:textSize="30sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="Bookmark notes, videos, books etc for quicker access"
+            android:textColor="?attr/colorText" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/linear_Bookmark"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bookmarked Items"
+                android:textColor="?attr/colorText"
+                android:textSize="21sp" />
+
+            <ListView
+                android:id="@+id/notesBookMarkList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="10dp"
+                android:textColor="#000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_Bookmark_yt"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bookmarked Videos"
+                android:textColor="?attr/colorText"
+                android:textSize="21sp" />
+
+            <ListView
+                android:id="@+id/ytBookMarkList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="10dp"
+                android:textColor="#000" />
+        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>

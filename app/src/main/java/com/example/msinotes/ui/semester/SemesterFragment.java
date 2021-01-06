@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -14,9 +15,11 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.msinotes.MainActivity;
+import com.example.msinotes.Models.FirebaseHelper;
 import com.example.msinotes.Models.UtilityClass;
 import com.example.msinotes.R;
 import com.example.msinotes.SubjectsClass;
@@ -51,8 +54,10 @@ public class SemesterFragment extends Fragment
         final ArrayList<SubjectsClass> mSubject = new ArrayList<SubjectsClass>();
 
         //Method to get subjects items to "mSubject" Array List
-        UtilityClass.getSubjectsList(mSubject, strBCACode, ((AppCompatActivity) getActivity()).getSupportActionBar());
+        FirebaseHelper.getSubjectsList(mSubject, strBCACode, (Toolbar) ((AppCompatActivity)getActivity()).findViewById(R.id.toolbar));
 
+
+        //SubjectsClass test = FirebaseHelper.getSubInfo("BCA 101");
 
         OptionsAdaptor adapter = new OptionsAdaptor(getContext(), mSubject);
 
@@ -90,6 +95,8 @@ public class SemesterFragment extends Fragment
 
                 // Custom Values to pass as argument when switching to another fragment
                 Bundle args = new Bundle();
+                args.putString("Header", strBCACode.toUpperCase());
+                args.putString("Title", strBCACode.toUpperCase() + " (Syllabus)");
                 args.putString("URL", UtilityClass.getSyllabusUrl(strBCACode));
                 frag.setArguments(args);
 

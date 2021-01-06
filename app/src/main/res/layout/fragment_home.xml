@@ -8,6 +8,8 @@
     android:layout_height="match_parent"
     android:background="?attr/colorHomeBg"
     android:orientation="vertical"
+    android:paddingStart="5dp"
+    android:paddingEnd="5dp"
     tools:context=".ui.home.HomeFragment">
 
     <!--<TextView
@@ -117,7 +119,7 @@
                     android:layout_marginRight="16dp"
                     android:layout_weight="1"
                     android:background="@drawable/rounded_button"
-                    android:text="2th Semester"
+                    android:text="2nd Semester"
                     android:textAllCaps="false"
                     android:textColor="#fff" />
             </LinearLayout>

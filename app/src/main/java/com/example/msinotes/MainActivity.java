@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.example.msinotes.Models.UtilityClass;
+import com.example.msinotes.Models.UtilityData;
 import com.example.msinotes.ui.Search.SearchFragment;
 import com.example.msinotes.ui.SubjectInfo.NotesOptionsAdaptor;
 import com.example.msinotes.ui.bookmark.BookmarkFragment;
@@ -30,6 +31,13 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.msinotes.SettingsActivity;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -45,10 +53,18 @@ public class MainActivity extends AppCompatActivity
         SharedPreferences sharedMainPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         String storeStartUpPage = sharedMainPreferences.getString(getString(R.string.key_theme), "1");
 
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("BCA");
+
+
         //Function to set theme
         setCustomTheme(storeStartUpPage);
 
         setContentView(R.layout.activity_main);
+
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
 
         navView = findViewById(R.id.nav_view);
 
@@ -58,15 +74,34 @@ public class MainActivity extends AppCompatActivity
         //Listener attached to nav view (bottom view)
         navView.setOnNavigationItemSelectedListener(navListner);
 
-        try
-        {
-            //Add shadows from action bar
-            getSupportActionBar().setElevation(30);
-        } catch (Exception ex)
-        {
-
-        }
+//        try
+//        {
+//            //Add shadows from action bar
+//            getSupportActionBar().setElevation(30);
+//        } catch (Exception ex)
+//        {
+//
+//        }
         changelogPop();
+
+        // Read from the database
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                //String value = dataSnapshot.child("BCA 107").child("URL").getValue(String.class);
+                UtilityData.fireBaseDataSnapShot = dataSnapshot;
+//                String value = dataSnapshot.child("BCA 107").child("Akash_url").getValue(String.class);
+//                int x = 10;
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                //Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
 
     }
 

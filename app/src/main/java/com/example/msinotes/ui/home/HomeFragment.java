@@ -11,10 +11,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
@@ -49,8 +52,11 @@ public class HomeFragment extends Fragment
         //Sets Home Button as selected in nav view
         navView.getMenu().findItem(R.id.navigation_home).setChecked(true);
 
+        //ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
+        Toolbar toolbar = ((AppCompatActivity)getActivity()).findViewById(R.id.toolbar);
+        TextView toolbar_text = toolbar.findViewById(R.id.toolbar_title);
+        toolbar_text.setText("HOME");
 
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("HOME");
 
         btnSem1.setOnClickListener(new View.OnClickListener()
         {

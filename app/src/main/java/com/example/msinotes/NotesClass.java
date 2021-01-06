@@ -10,4 +10,17 @@ public class NotesClass
         this.mName = mName;
         this.mNotes_url = mNotes_url;
     }
+
+    @Override
+    public boolean equals(Object object)
+    {
+        boolean sameSame = false;
+
+        if (object instanceof NotesClass)
+        {
+            sameSame = this.mNotes_url.equals( ((NotesClass) object).mNotes_url);
+        }
+
+        return sameSame;
+    }
 }

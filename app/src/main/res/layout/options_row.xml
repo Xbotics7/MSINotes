@@ -3,9 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/custom_listview_item"
+    android:descendantFocusability="blocksDescendants"
     android:orientation="vertical"
     android:paddingTop="10dp"
-    android:descendantFocusability="blocksDescendants"
     android:paddingBottom="10dp">
 
     <RelativeLayout
@@ -34,16 +34,17 @@
             android:visibility="gone" />
 
         <ImageButton
-        android:id="@+id/btnBookMark"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+            android:id="@+id/btnBookMark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerInParent="true"
-        android:layout_marginEnd="10dp"
-        android:background="@android:color/transparent"
-        android:src="@drawable/ic_baseline_bookmark_border_24"
-        android:tint="#fff"
-        android:visibility="gone" />
+            android:layout_marginEnd="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_bookmark_border_24"
+            android:tint="#fff"
+            android:visibility="gone" />
+
         <ImageButton
             android:id="@+id/btnUnBookMark"
             android:layout_width="wrap_content"
@@ -132,14 +133,14 @@
             android:id="@+id/textview_sc_moreinfo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="bottom"
-            android:drawablePadding="5dp"
             android:layout_marginTop="2dp"
             android:drawableStart="@drawable/ic_baseline_info_sm"
+            android:drawablePadding="5dp"
+            android:gravity="bottom"
             android:paddingStart="25dp"
             android:text="BCA 101"
             android:textColor="#fff"
-            android:textSize="12sp"/>
+            android:textSize="12sp" />
     </LinearLayout>
     <!--    <TextView-->
     <!--        android:layout_width="wrap_content"-->

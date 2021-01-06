@@ -21,83 +21,41 @@ import com.example.msinotes.SubjectsClass;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class NotesOptionsAdaptor extends ArrayAdapter<NotesClass>
 {
-    ArrayList<NotesClass> notesList;
+    ArrayList<NotesClass> mNotesList;
+    ArrayList<NotesClass> savedNotesList;
+
     public NotesOptionsAdaptor(Context context, ArrayList<NotesClass> notesList)
     {
-        super(context, R.layout.options_row, notesList);
-    }
 
+        super(context, R.layout.options_row, notesList);
+        this.mNotesList = notesList;
+        savedNotesList = UtilityClass.getNotesBookMarks(getContext());
+    }
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent)
     {
+
         View view = convertView;
         if (view == null)
         {
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.options_row, null);
         }
-//        Button callbtn= (Button)view.findViewById(R.id.btTest);
-//        final TextView tbShyam = (TextView) view.findViewById(R.id.tbShyam);
-//        callbtn.setOnClickListener(new View.OnClickListener()
-//        {
-//            @Override
-//            public void onClick(View v)
-//            {
-//                tbShyam.setText("asdjkasd");
-//                UtilityClass.showToast("test", getContext());
-//            }
-//        });
+
         return initView(position, convertView, parent);
     }
-
-    private void savedata(NotesClass subNotes, ImageButton btnBookMark, ImageButton btnUnBookMark){
-            Gson gson = new Gson();
-            SharedPreferences sharedPrefBookMark = PreferenceManager.getDefaultSharedPreferences(getContext());
-            SharedPreferences.Editor editor = sharedPrefBookMark.edit();
-            ArrayList<NotesClass> notesList = new ArrayList<>();
-              String json = sharedPrefBookMark.getString("BookMark List","");
-            Type type =  new TypeToken<ArrayList<NotesClass>>() {}.getType();
-            notesList = gson.fromJson(json,type);
-
-            if(notesList == null){
-            notesList = new ArrayList<>();
-            }
-
-            notesList.add(subNotes);
-
-            String json2 = gson.toJson(notesList);
-            editor.putString("BookMark List", json2);
-            editor.apply();
-
-            btnBookMark.setVisibility(View.GONE);
-            btnUnBookMark.setVisibility(View.VISIBLE);
-
-    }
-
-
- private void UnBookMark(NotesClass subNotes,ImageButton btnBookMark, ImageButton btnUnBookMark){
-     SharedPreferences sharedPrefBookMark = PreferenceManager.getDefaultSharedPreferences(getContext());
-     SharedPreferences.Editor editor = sharedPrefBookMark.edit();
-    editor.remove();
-    editor.commit();
-
-     btnBookMark.setVisibility(View.VISIBLE);
-        btnUnBookMark.setVisibility(View.GONE);
-
-
- }
 
     private View initView(int position, @Nullable View convertView, @NonNull ViewGroup parent)
     {
 
-        loaddata();
 
         final NotesClass currentItem = getItem(position);
 
@@ -118,50 +76,44 @@ public class NotesOptionsAdaptor extends ArrayAdapter<NotesClass>
         {
             textView.setBackgroundResource(R.drawable.custom_listview_item);
             textView.setText(currentItem.mName);
-            if(notesList.contains(currentItem)){
+
+            if (savedNotesList.contains(currentItem))
+            {
                 btnUnBookMark.setVisibility(View.VISIBLE);
                 btnBookMark.setVisibility(View.GONE);
-            }
-            else{
+            } else
+            {
                 btnBookMark.setVisibility(View.VISIBLE);
                 btnUnBookMark.setVisibility(View.GONE);
+
             }
         }
 
-
-
-        btnBookMark.setOnClickListener(new View.OnClickListener() {
+        btnBookMark.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
-                savedata(currentItem, btnBookMark,btnUnBookMark);
-
+            public void onClick(View v)
+            {
+                UtilityClass.saveToBookmark(currentItem, btnBookMark, btnUnBookMark, getContext());
             }
         });
 
-        btnUnBookMark.setOnClickListener(new View.OnClickListener() {
+        btnUnBookMark.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
-                UnBookMark(currentItem, btnBookMark, btnUnBookMark);
+            public void onClick(View v)
+            {
+                UtilityClass.removeFromBookMark(currentItem, btnBookMark, btnUnBookMark, getContext());
+                if (UtilityClass.isBookmark)
+                {
+                    mNotesList.remove(currentItem);
+                    notifyDataSetChanged();
+                }
             }
         });
 
 
         return convertView;
-    }
-
-    private void loaddata( ){
-
-        if(notesList == null){
-            notesList = new ArrayList<>();
-        }
-
-        Gson gson = new Gson();
-        SharedPreferences sharedPrefBookMark = PreferenceManager.getDefaultSharedPreferences(getContext());
-        String json = sharedPrefBookMark.getString("BookMark List",null);
-        Type type =  new TypeToken<ArrayList<NotesClass>>() {}.getType();
-        notesList = gson.fromJson(json,type);
-
-
     }
 
 }

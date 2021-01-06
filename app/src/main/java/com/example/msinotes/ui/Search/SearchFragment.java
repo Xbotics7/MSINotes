@@ -19,11 +19,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.msinotes.Models.FirebaseHelper;
 import com.example.msinotes.Models.UtilityClass;
 import com.example.msinotes.R;
 import com.example.msinotes.SubjectsClass;
@@ -53,7 +55,9 @@ public class SearchFragment extends Fragment
         BottomNavigationView navView = getActivity().findViewById(R.id.nav_view);
         navView.getMenu().findItem(R.id.navigation_search).setChecked(true);
 
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("SEARCH");
+        Toolbar toolbar = ((AppCompatActivity)getActivity()).findViewById(R.id.toolbar);
+        TextView toolbar_text = toolbar.findViewById(R.id.toolbar_title);
+        toolbar_text.setText("SEARCH");
 
         listView = (ListView) view.findViewById(R.id.lv_search);
         editTextSearch = (EditText) view.findViewById(R.id.edit_text_search);
@@ -64,7 +68,7 @@ public class SearchFragment extends Fragment
         mLinearSearchCont.setVisibility(View.GONE);
 
         //Gets all the subjects as ArrayItem into "mSubject" ArrayList;
-        UtilityClass.getSubjectsList(mSubject);
+        FirebaseHelper.getAllSubjectsList(mSubject);
 
         //Listener attached to handle function when search box text is changed
         editTextSearch.addTextChangedListener(new TextWatcher()

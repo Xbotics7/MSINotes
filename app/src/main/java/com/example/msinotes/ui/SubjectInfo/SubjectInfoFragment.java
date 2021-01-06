@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -20,7 +21,9 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.msinotes.Models.FirebaseHelper;
 import com.example.msinotes.Models.UtilityClass;
+import com.example.msinotes.Models.UtilityData;
 import com.example.msinotes.NotesClass;
 import com.example.msinotes.R;
 import com.example.msinotes.SubjectsClass;
@@ -60,9 +63,11 @@ public class SubjectInfoFragment extends Fragment
         strSubjectCode = getArguments().getString("SubjectCode");
 
         //Method to get full Subject Class Info by passing subject code
-        subInfo = UtilityClass.getSubInfo(strSubjectCode);
+        subInfo = FirebaseHelper.getSubInfo(strSubjectCode);
 
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(subInfo.mSubjectName);
+        Toolbar toolbar = ((AppCompatActivity) getActivity()).findViewById(R.id.toolbar);
+        TextView toolbar_text = toolbar.findViewById(R.id.toolbar_title);
+        toolbar_text.setText(subInfo.mSubjectName);
 
         txvSubjectCode = view.findViewById(R.id.textview_subject_code);
         btnNotes = view.findViewById(R.id.btnNotes);
@@ -75,6 +80,8 @@ public class SubjectInfoFragment extends Fragment
         //Visibility if url exists or not
         visibilityButton();
 
+
+
         btnNotes.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -85,7 +92,7 @@ public class SubjectInfoFragment extends Fragment
                 else if (subInfo.mNotes_url.equals(""))
                     customNotesPopup();
                 else
-                    subButtonClick(subInfo.mNotes_url);
+                    subButtonClick(subInfo.mNotes_url, subInfo.mSubjectName, "Notes");
             }
         });
         btnBook.setOnClickListener(new View.OnClickListener()
@@ -96,7 +103,7 @@ public class SubjectInfoFragment extends Fragment
                 if (subInfo.mBook_url.equals(""))
                     UtilityClass.showToast("Not Available right now", getContext());
                 else
-                    subButtonClick(subInfo.mBook_url);
+                    subButtonClick(subInfo.mBook_url, subInfo.mSubjectName, "Book");
             }
         });
         btnPprAnalysis.setOnClickListener(new View.OnClickListener()
@@ -107,7 +114,7 @@ public class SubjectInfoFragment extends Fragment
                 if (subInfo.mPaper_analysis_url.equals(""))
                     UtilityClass.showToast("Not Available right now", getContext());
                 else
-                    subButtonClick(subInfo.mPaper_analysis_url);
+                    subButtonClick(subInfo.mPaper_analysis_url, subInfo.mSubjectName, "Paper Analysis");
             }
         });
         btnAkash.setOnClickListener(new View.OnClickListener()
@@ -118,7 +125,7 @@ public class SubjectInfoFragment extends Fragment
                 if (subInfo.mAkash_url.equals(""))
                     UtilityClass.showToast("Not Available right now", getContext());
                 else
-                    subButtonClick(subInfo.mAkash_url);
+                    subButtonClick(subInfo.mAkash_url, subInfo.mSubjectName, "Akash");
             }
         });
         btnVids.setOnClickListener(new View.OnClickListener()
@@ -130,7 +137,8 @@ public class SubjectInfoFragment extends Fragment
                 {
                     if (subInfo.mYoutube_url.size() == 1)
                     {
-                        ytButtonClick(subInfo.mYoutube_url.get(0).yt_playlist_url);
+                        YoutubeClass _ytObj = subInfo.mYoutube_url.get(0);
+                        ytButtonClick(_ytObj.yt_playlist_url, _ytObj.yt_name);
                     } else
                     {
                         customYTPopup();
@@ -145,12 +153,15 @@ public class SubjectInfoFragment extends Fragment
         return view;
     }
 
-    private void subButtonClick(String url)
+    private void subButtonClick(String url, String Title, String Header)
     {
         WebrowserFragment frag = new WebrowserFragment();
 
         // Custom Values to pass as argument when switching to another fragment
         Bundle args = new Bundle();
+
+        args.putString("Header", Header);
+        args.putString("Title", Title + " (" + Header + ")");
         args.putString("URL", url);
         frag.setArguments(args);
 
@@ -163,12 +174,14 @@ public class SubjectInfoFragment extends Fragment
         fragTrans.commit();
     }
 
-    private void ytButtonClick(String url)
+    private void ytButtonClick(String url, String Title)
     {
         YoutubeFragment frag = new YoutubeFragment();
 
         // Custom Values to pass as argument when switching to another fragment
         Bundle args = new Bundle();
+        args.putString("Header", "Video");
+        args.putString("Title", Title + " Video ");
         args.putString("URL", url);
         frag.setArguments(args);
 
@@ -199,7 +212,8 @@ public class SubjectInfoFragment extends Fragment
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
-                subButtonClick(((NotesClass) subInfo.mNotesList_url.get(position)).mNotes_url);
+                NotesClass _notesClass = (NotesClass) subInfo.mNotesList_url.get(position);
+                subButtonClick(_notesClass.mNotes_url, _notesClass.mName, "Notes");
                 dialog.hide();
             }
         });
@@ -223,7 +237,9 @@ public class SubjectInfoFragment extends Fragment
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
-                ytButtonClick(((YoutubeClass) subInfo.mYoutube_url.get(position)).yt_playlist_url);
+                YoutubeClass _ytObj = subInfo.mYoutube_url.get(position);
+                ytButtonClick(_ytObj.yt_playlist_url, _ytObj.yt_name);
+                //ytButtonClick(((YoutubeClass) subInfo.mYoutube_url.get(position)).yt_playlist_url);
                 dialog.hide();
             }
         });

@@ -4,6 +4,8 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import android.view.KeyEvent;
@@ -13,15 +15,19 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.example.msinotes.Models.UtilityClass;
 import com.example.msinotes.NotesClass;
 import com.example.msinotes.R;
+import com.example.msinotes.YoutubeClass;
 import com.example.msinotes.ui.SubjectInfo.NotesOptionsAdaptor;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -29,6 +35,9 @@ public class YoutubeFragment extends Fragment
 {
     WebView mYTWeb;
     ProgressBar mProgressBar;
+    ArrayList<YoutubeClass> savedYTList;
+    ImageButton toolbar_bookmark;
+    ImageButton toolbar_unbookmark;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,14 +49,54 @@ public class YoutubeFragment extends Fragment
         // Set nav view visibility to collapse
         navView.setVisibility(View.GONE);
 
-        //Get the passed value sent from the previous fragment
+        Toolbar toolbar = ((AppCompatActivity) getActivity()).findViewById(R.id.toolbar);
+        toolbar_bookmark = toolbar.findViewById(R.id.btnToolbarBookMark);
+        toolbar_unbookmark = toolbar.findViewById(R.id.btnToolbarUnBookMark);
+        toolbar_bookmark.setVisibility(View.VISIBLE);
+        TextView toolbar_text = toolbar.findViewById(R.id.toolbar_title);
+
+        String passedHeader = getArguments().getString("Header");
+        final String passedTitle = getArguments().getString("Title");
         final String passedUrl = getArguments().getString("URL");
+
+        toolbar_text.setText(passedHeader);
+
+        savedYTList = UtilityClass.getYTBookMarks(getContext());
+
+        if (savedYTList.contains(new YoutubeClass("", passedUrl)))
+        {
+            toolbar_unbookmark.setVisibility(View.VISIBLE);
+            toolbar_bookmark.setVisibility(View.GONE);
+        } else
+        {
+            toolbar_bookmark.setVisibility(View.VISIBLE);
+            toolbar_unbookmark.setVisibility(View.GONE);
+        }
 
         mYTWeb = (WebView) view.findViewById(R.id.yt_webview);
         mProgressBar = (ProgressBar)view.findViewById(R.id.progressBarYT);
 
         UtilityClass.updateWebViewDefaults(mYTWeb);
 
+        final YoutubeClass ytObj = new YoutubeClass(passedTitle, passedUrl);
+
+        toolbar_bookmark.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                UtilityClass.saveToYTBookmark(ytObj, toolbar_bookmark, toolbar_unbookmark, getContext());
+            }
+        });
+
+        toolbar_unbookmark.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                UtilityClass.removeFromYTBookMark(ytObj, toolbar_bookmark, toolbar_unbookmark, getContext());
+            }
+        });
         //Set a new client for default webview
         mYTWeb.setWebViewClient(new WebViewClient()
         {
@@ -126,5 +175,12 @@ public class YoutubeFragment extends Fragment
         return view;
     }
 
+    @Override
+    public void onStop()
+    {
+        toolbar_unbookmark.setVisibility(View.GONE);
+        toolbar_bookmark.setVisibility(View.GONE);
+        super.onStop();
+    }
 
 }
